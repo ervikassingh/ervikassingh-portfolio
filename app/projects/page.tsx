@@ -20,7 +20,7 @@ export default async function ProjectsPage() {
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "ervikassingh")!;
+  const featured = allProjects.find((project) => project.slug === "taxicoin")!;
   const top2 = allProjects.find((project) => project.slug === "nft-market")!;
   const top3 = allProjects.find((project) => project.slug === "nft-staking")!;
   const sorted = allProjects
