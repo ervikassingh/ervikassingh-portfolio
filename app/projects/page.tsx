@@ -20,9 +20,9 @@ export default async function ProjectsPage() {
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "taxicoin")!;
-  const top2 = allProjects.find((project) => project.slug === "nft-market")!;
-  const top3 = allProjects.find((project) => project.slug === "nft-staking")!;
+  const featured = allProjects.find((project) => project.slug === "nestjs-monolithic-template")!;
+  const top2 = allProjects.find((project) => project.slug === "taxicoin")!;
+  const top3 = allProjects.find((project) => project.slug === "nft-market")!;
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
