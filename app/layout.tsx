@@ -29,10 +29,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  twitter: {
-    title: "ervikassingh",
-    card: "summary_large_image",
-  },
   icons: {
     shortcut: "/favicon/favicon.ico",
   },

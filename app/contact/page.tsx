@@ -39,10 +39,10 @@ const socials = [
 
 export default function Example() {
 	return (
-		<div className=" bg-gradient-to-tl from-zinc-900 via-blue-900/30 to-black">
+		<div className="relative pb-16 min-h-screen bg-gradient-to-tl from-zinc-900 via-blue-900/30 to-black">
 			<Navigation />
-			<div className="container flex items-center justify-center min-h-screen px-8 sm:px-4 mx-auto">
-				<div className="grid w-full grid-cols-1 gap-6 mx-auto mt-32 sm:mt-20 md:mt-24 lg:mt-0 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 xl:gap-12">
+			<div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+				<div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 sm:grid-cols-2 md:grid-cols-3">
 					{socials.map((s) => (
 						<Card key={s.label}>
 							<Link
