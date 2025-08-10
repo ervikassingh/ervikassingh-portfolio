@@ -1,15 +1,28 @@
 const languages = [
   {
     name: 'JavaScript',
-    icon: 'https://img.shields.io/badge/javascript-%2317254B.svg?style=for-the-badge&logo=javascript&logoColor=white',
+    icon: 'https://cdn.simpleicons.org/javascript/ffffff',
+    link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
   },
   {
     name: 'TypeScript',
-    icon: 'https://img.shields.io/badge/typescript-%2317254B.svg?style=for-the-badge&logo=typescript&logoColor=white',
+    icon: 'https://cdn.simpleicons.org/typescript/ffffff',
+    link: 'https://www.typescriptlang.org/',
   },
   {
     name: 'Solidity',
-    icon: 'https://img.shields.io/badge/Solidity-%2317254B.svg?style=for-the-badge&logo=solidity&logoColor=white',
+    icon: 'https://cdn.simpleicons.org/solidity/ffffff',
+    link: 'https://docs.soliditylang.org/',
+  },
+  {
+    name: 'C',
+    icon: 'https://cdn.simpleicons.org/c/ffffff',
+    link: 'https://www.iso.org/standard/74528.html',
+  },
+  {
+    name: 'C++',
+    icon: 'https://cdn.simpleicons.org/cplusplus/ffffff',
+    link: 'https://isocpp.org/',
   },
 ];
 
