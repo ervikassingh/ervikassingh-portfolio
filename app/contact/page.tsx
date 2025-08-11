@@ -42,31 +42,79 @@ export default function Example() {
 		<div className="relative pb-16 min-h-screen bg-gradient-to-tl from-zinc-900 via-blue-900/30 to-black">
 			<Navigation />
 			<div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-				<div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 sm:grid-cols-2 md:grid-cols-3">
-					{socials.map((s) => (
-						<Card key={s.label}>
-							<Link
-								href={s.href}
-								target="_blank"
-								className="p-4 relative flex flex-col items-center gap-3 duration-700 group md:gap-6 md:py-16 lg:py-20 md:p-12"
-							>
-								<span
-									className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
-									aria-hidden="true"
-								/>
-								<span className="relative z-10 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
-									{s.icon}
-								</span>
-								<div className="z-10 flex flex-col items-center">
-									<span className="text-sm md:text-base lg:text-lg xl:text-xl font-medium duration-150 text-zinc-200 group-hover:text-white font-display text-center break-words">
-										{s.handle}
-									</span>
-									<span className="mt-2 md:mt-3 text-xs md:text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
-										{s.label}
-									</span>
-								</div>
-							</Link>
-						</Card>
+				<div className="max-w-2xl mx-auto lg:mx-0">
+					<h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
+						Contact
+					</h2>
+					<p className="mt-4 text-zinc-400">
+						Get in touch with me through any of these platforms.
+					</p>
+				</div>
+				<div className="w-full h-px bg-zinc-800" />
+
+				{/* Medium screens: 2 columns */}
+				<div className="grid grid-cols-1 gap-4 mx-auto lg:hidden md:grid-cols-2">
+					{Array.from({ length: 2 }, (_, columnIndex) => (
+						<div key={columnIndex} className="grid grid-cols-1 gap-4">
+							{socials
+								.filter((_, i) => i % 2 === columnIndex)
+								.map((s) => (
+									<Card key={s.label}>
+										<Link
+											href={s.href}
+											target="_blank"
+											className="group h-full block"
+										>
+											<article className="p-4 md:p-8 h-full flex flex-col justify-start">
+												<div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange mb-4">
+													{s.icon}
+												</div>
+												<div className="text-center">
+													<h3 className="text-xl font-medium duration-1000 lg:text-2xl text-zinc-200 group-hover:text-white font-display">
+														{s.label}
+													</h3>
+													<p className="mt-2 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-200">
+														{s.handle}
+													</p>
+												</div>
+											</article>
+										</Link>
+									</Card>
+								))}
+						</div>
+					))}
+				</div>
+
+				{/* Large screens: 3 columns */}
+				<div className="hidden lg:grid grid-cols-1 gap-4 mx-auto lg:mx-0 lg:grid-cols-3">
+					{Array.from({ length: 3 }, (_, columnIndex) => (
+						<div key={columnIndex} className="grid grid-cols-1 gap-4">
+							{socials
+								.filter((_, i) => i % 3 === columnIndex)
+								.map((s) => (
+									<Card key={s.label}>
+										<Link
+											href={s.href}
+											target="_blank"
+											className="group h-full block"
+										>
+											<article className="p-4 md:p-8 h-full flex flex-col justify-start">
+												<div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange mb-4">
+													{s.icon}
+												</div>
+												<div className="text-center">
+													<h3 className="text-xl font-medium duration-1000 lg:text-2xl text-zinc-200 group-hover:text-white font-display">
+														{s.label}
+													</h3>
+													<p className="mt-2 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-200">
+														{s.handle}
+													</p>
+												</div>
+											</article>
+										</Link>
+									</Card>
+								))}
+						</div>
 					))}
 				</div>
 			</div>
