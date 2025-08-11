@@ -17,7 +17,7 @@ export default function Home() {
       />
 
       <div className="flex flex-col items-center justify-center flex-1">
-        <nav className="mb-12 animate-fade-in">
+        <nav className="mb-20 animate-fade-in">
           <ul className="flex items-center justify-center gap-8 text-lg font-semibold">
             {navigation.map((item) => (
               <Link
@@ -36,12 +36,6 @@ export default function Home() {
           vikas singh
         </h1>
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-
-        <div className="my-1 mt-6 text-center animate-fade-in">
-          <h2 className="text-sm text-zinc-500 ">
-            Crafting the future of decentralized applications
-          </h2>
-        </div>
 
       </div>
       <div className="mt-auto mb-8 text-center animate-fade-in">

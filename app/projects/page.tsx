@@ -103,8 +103,17 @@ export default async function ProjectsPage() {
         </div>
         <div className="hidden w-full h-px md:block bg-zinc-800" />
 
+        {/* Small screens: 1 column */}
+        <div className="grid grid-cols-1 gap-4 mx-auto md:hidden">
+          {sorted.map((project) => (
+            <Card key={project.slug}>
+              <Article project={project} views={views[project.slug] ?? 0} />
+            </Card>
+          ))}
+        </div>
+
         {/* Medium screens: 2 columns */}
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:hidden md:grid-cols-2">
+        <div className="hidden md:grid grid-cols-2 gap-4 mx-auto lg:hidden">
           {Array.from({ length: 2 }, (_, columnIndex) => (
             <div key={columnIndex} className="grid grid-cols-1 gap-4">
               {sorted
