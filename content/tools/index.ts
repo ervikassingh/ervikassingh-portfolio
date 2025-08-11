@@ -35,6 +35,16 @@ const tools = [
     link: 'https://expressjs.com/',
   },
   {
+    name: 'Ethers.js',
+    icon: 'https://cdn.simpleicons.org/ethereum/ffffff',
+    link: 'https://docs.ethers.org/',
+  },
+  {
+    name: 'Hardhat',
+    icon: 'https://cdn.simpleicons.org/ethereum/ffffff',
+    link: 'https://hardhat.org/',
+  },
+  {
     name: 'ESLint',
     icon: 'https://cdn.simpleicons.org/eslint/ffffff',
     link: 'https://eslint.org/',
