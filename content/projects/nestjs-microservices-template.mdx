@@ -1,0 +1,96 @@
+---
+title: nestjs-microservices-template
+description: A production-ready NestJS microservices template with comprehensive architecture, service communication, and best practices for building scalable distributed applications.
+repository: ervikassingh/nestjs-microservices-template
+date: 2025-08-11
+published: true
+---
+
+## Overview
+
+The NestJS Microservices Template is a comprehensive, production-ready starter template built on Nx workspace designed to accelerate microservices development with NestJS. This monorepo template provides a solid foundation for building scalable, maintainable, and well-structured distributed applications by incorporating industry best practices, microservices patterns, and essential features out of the box. Built with Nx, it offers powerful tooling for managing multiple applications and packages in a single repository.
+
+## Key Features
+
+- **Nx Monorepo**: Powerful workspace management for multiple applications and packages
+- **Microservices Architecture**: Built-in support for multiple transport layers (TCP, Redis, MQTT, gRPC)
+- **Service Communication**: Inter-service communication with message patterns and event-driven architecture
+- **API Gateway**: Centralized gateway for routing and load balancing
+- **Service Discovery**: Automatic service registration and discovery
+- **Load Balancing**: Built-in load balancing across service instances
+- **Circuit Breaker**: Fault tolerance and resilience patterns
+- **Distributed Tracing**: Request tracing across microservices
+- **Health Checks**: Service health monitoring and status endpoints
+- **Configuration Management**: Centralized configuration for all services
+- **Docker & Kubernetes**: Containerization and orchestration support
+- **Monitoring & Logging**: Centralized logging and metrics collection
+- **Testing**: Comprehensive testing setup for microservices
+- **Proto Files**: gRPC protocol buffer definitions for type-safe communication
+
+## Architecture
+
+The template follows a microservices architecture with clear service boundaries, built on Nx workspace:
+
+- **Nx Workspace**: Monorepo structure with apps and packages directories
+- **API Gateway**: Single entry point for all client requests
+- **Microservices**: Independent, loosely coupled services in the apps directory
+- **Shared Packages**: Reusable code and utilities in the packages directory
+- **Proto Files**: Protocol buffer definitions for gRPC communication
+- **Message Brokers**: Asynchronous communication between services
+- **Service Registry**: Centralized service discovery
+- **Config Service**: Centralized configuration management
+- **Monitoring**: Distributed tracing and health monitoring
+- **Load Balancer**: Traffic distribution across service instances
+
+## Technologies Used
+
+- **NestJS** - Progressive Node.js framework for building scalable applications
+- **Nx** - Monorepo build system and workspace management
+- **TypeScript** - Type-safe JavaScript for better development experience
+- **Redis** - Message broker and caching layer
+- **gRPC** - High-performance RPC framework for inter-service communication
+- **Protocol Buffers** - Data serialization format for gRPC
+- **Docker** - Containerization for consistent deployment
+- **Docker Compose** - Multi-container application orchestration
+- **Kubernetes** - Container orchestration and scaling
+- **Prometheus** - Metrics collection and monitoring
+- **Grafana** - Visualization and alerting
+- **Jaeger** - Distributed tracing
+- **Helm** - Kubernetes package manager
+
+## Getting Started
+
+1. Clone the repository: `git clone https://github.com/ervikassingh/nestjs-microservices-template.git`
+2. Install dependencies: `npm install`
+3. Configure environment variables for each service
+4. Start Redis and other required services using Docker Compose
+5. Generate and build packages: `npx nx build <package-name>`
+6. Run individual services: `npx nx serve <service-name>`
+7. Start API Gateway: `npx nx serve gateway`
+8. Use Nx commands for development: `npx nx graph` to visualize dependencies
+
+## Benefits
+
+- **Scalability**: Independent scaling of services based on demand
+- **Maintainability**: Clear service boundaries and responsibilities
+- **Monorepo Benefits**: Single repository for all services with shared tooling
+- **Technology Diversity**: Use different technologies for different services
+- **Fault Isolation**: Service failures don't cascade to the entire system
+- **Team Autonomy**: Teams can work independently on different services
+- **Deployment Flexibility**: Independent deployment and versioning
+- **Performance**: Optimized communication and resource utilization
+- **Code Sharing**: Reusable packages and utilities across services
+- **Dependency Management**: Nx handles complex dependency graphs efficiently
+
+## Use Cases
+
+This template is ideal for:
+- Building large-scale distributed applications
+- Creating scalable backend services for high-traffic applications
+- Developing enterprise applications with complex business domains
+- Implementing event-driven architectures
+- Building systems that need to handle high concurrency
+- Creating platforms that require independent service scaling
+- Learning microservices patterns and best practices
+
+The template serves as a solid foundation for any NestJS microservices project, providing the necessary infrastructure and patterns for building robust, scalable distributed systems.
