@@ -26,23 +26,29 @@ export const Navigation: React.FC = () => {
 						: "bg-zinc-900/500  border-zinc-800 "
 				}`}
 			>
-				<div className="container flex flex-row-reverse items-center justify-between p-6 mx-auto">
-					<div className="flex justify-between gap-8">
+				<div className="container flex flex-row-reverse items-center justify-between p-4 sm:p-6 mx-auto">
+					<div className="flex justify-between gap-3 sm:gap-6 md:gap-8">
+						<Link
+							href="/experience"
+							className="duration-200 text-zinc-400 hover:text-zinc-100 text-sm sm:text-base"
+						>
+							Experience
+						</Link>
+						<Link
+							href="/skills"
+							className="duration-200 text-zinc-400 hover:text-zinc-100 text-sm sm:text-base"
+						>
+							Skills
+						</Link>
 						<Link
 							href="/projects"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
+							className="duration-200 text-zinc-400 hover:text-zinc-100 text-sm sm:text-base"
 						>
 							Projects
 						</Link>
 						<Link
-							href="/languages"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
-						>
-							Languages
-						</Link>
-						<Link
 							href="/contact"
-							className="duration-200 text-zinc-400 hover:text-zinc-100"
+							className="duration-200 text-zinc-400 hover:text-zinc-100 text-sm sm:text-base"
 						>
 							Contact
 						</Link>

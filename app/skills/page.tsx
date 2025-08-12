@@ -4,14 +4,14 @@ import { Card } from "../components/card";
 import languages from "../../content/languages";
 import tools from "../../content/tools";
 
-export default function LanguagesPage() {
+export default function SkillsPage() {
   return (
     <div className="relative min-h-screen bg-gradient-to-tl from-zinc-900 via-blue-900/30 to-black">
       <Navigation />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32 pb-16">
         <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
-            Languages & Frameworks
+            Skills & Technologies
           </h2>
           <p className="mt-4 text-zinc-400">
             Technologies and tools I use to build modern applications.
@@ -25,7 +25,7 @@ export default function LanguagesPage() {
             <h3 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl mb-6 font-display">
               Programming Languages
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-[70%]">
               {languages.map((lang) => (
                 <a
                   href={lang.link}
@@ -48,7 +48,7 @@ export default function LanguagesPage() {
             <h3 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl mb-6 font-display">
               Tools & Frameworks
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-[70%]">
               {tools.map((tool) => (
                 <a
                   href={tool.link}

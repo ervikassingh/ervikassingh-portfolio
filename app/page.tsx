@@ -3,8 +3,9 @@ import React from "react";
 import Particles from "./components/particles";
 
 const navigation = [
+  { name: "Experience", href: "/experience" },
+  { name: "Skills", href: "/skills" },
   { name: "Projects", href: "/projects" },
-  { name: "Languages", href: "/languages" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -17,7 +18,7 @@ export default function Home() {
       />
 
       <div className="flex flex-col items-center justify-center flex-1">
-        <nav className="mb-20 animate-fade-in">
+        <nav className="mb-8 animate-fade-in">
           <ul className="flex items-center justify-center gap-8 text-lg font-semibold">
             {navigation.map((item) => (
               <Link
@@ -40,14 +41,9 @@ export default function Home() {
       </div>
       <div className="mt-auto mb-8 text-center animate-fade-in">
         <h2 className="text-sm text-zinc-500 ">
-          I'm building a{" "}
-          <Link
-            target="_blank"
-            href="https://github.com/ervikassingh/nestjs-monolithic-template"
-            className="underline duration-500 hover:text-zinc-300"
-          >
-            monolithic template
-          </Link> for NestJS.
+          Web3 engineer with{" "}
+          <span className="text-zinc-300 font-medium">5+ years of experience</span>{" "}
+          building decentralized applications.
         </h2>
       </div>
     </div>

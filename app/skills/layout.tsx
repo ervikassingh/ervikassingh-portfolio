@@ -1,4 +1,4 @@
-export default function LanguagesLayout({
+export default function SkillsLayout({
   children,
 }: {
   children: React.ReactNode;
