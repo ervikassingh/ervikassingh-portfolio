@@ -10,19 +10,52 @@ export default function ExperiencePage() {
 
   // Function to calculate duration between two dates
   const calculateDuration = (startDate: string, endDate: string): string => {
-    const start = new Date(startDate);
-    const end = endDate === "Present" ? new Date() : new Date(endDate);
-    
-    const diffTime = Math.abs(end.getTime() - start.getTime());
-    const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365));
-    const diffMonths = Math.floor((diffTime % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
-    
-    if (diffYears === 0) {
-      return `${diffMonths} mos`;
-    } else if (diffMonths === 0) {
-      return `${diffYears} yr`;
-    } else {
-      return `${diffYears} yr ${diffMonths} mos`;
+    try {
+      // Parse dates more reliably for mobile devices
+      const parseDate = (dateStr: string): Date => {
+        if (dateStr === "Present") return new Date();
+        
+        // Handle format like "Dec 2021" or "Oct 2020"
+        const months: { [key: string]: number } = {
+          'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3, 'May': 4, 'Jun': 5,
+          'Jul': 6, 'Aug': 7, 'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11
+        };
+        
+        const parts = dateStr.trim().split(' ');
+        if (parts.length === 2) {
+          const month = months[parts[0]];
+          const year = parseInt(parts[1]);
+          
+          if (month !== undefined && !isNaN(year)) {
+            return new Date(year, month, 1);
+          }
+        }
+        
+        // Fallback to standard parsing
+        const parsed = new Date(dateStr);
+        if (isNaN(parsed.getTime())) {
+          throw new Error(`Invalid date format: ${dateStr}`);
+        }
+        return parsed;
+      };
+
+      const start = parseDate(startDate);
+      const end = parseDate(endDate);
+      
+      const diffTime = Math.abs(end.getTime() - start.getTime());
+      const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365));
+      const diffMonths = Math.floor((diffTime % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+      
+      if (diffYears === 0) {
+        return `${diffMonths} mos`;
+      } else if (diffMonths === 0) {
+        return `${diffYears} yr`;
+      } else {
+        return `${diffYears} yr ${diffMonths} mos`;
+      }
+    } catch (error) {
+      console.error('Error calculating duration:', error);
+      return 'Duration unavailable';
     }
   };
 
@@ -90,7 +123,7 @@ export default function ExperiencePage() {
                             
                             {/* Expandable Description */}
                             <div className={`overflow-hidden transition-all duration-500 ease-out ${
-                              expandedCards.has(exp.title) ? 'max-h-40 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'
+                              expandedCards.has(exp.title) ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'
                             }`}>
                               <div className="border-t border-zinc-700/50 pt-3">
                                 <p className="text-sm text-zinc-300 leading-relaxed select-none font-medium">
