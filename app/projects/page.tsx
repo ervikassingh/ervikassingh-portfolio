@@ -20,9 +20,10 @@ export default async function ProjectsPage() {
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "nestjs-monolithic-template")!;
-  const top2 = allProjects.find((project) => project.slug === "taxicoin")!;
-  const top3 = allProjects.find((project) => project.slug === "nft-market")!;
+  const featured = allProjects.find((project) => project.slug === "taxicoin")!;
+  const top2 = allProjects.find((project) => project.slug === "nestjs-monolithic-template")!;
+  const top3 = allProjects.find((project) => project.slug === "nestjs-microservices-template")!;
+  
   const sorted = allProjects
     .filter((p) => p.published)
     .filter(
@@ -81,7 +82,7 @@ export default async function ProjectsPage() {
                 >
                   {featured.title}
                 </h2>
-                <p className="mt-4 leading-8 duration-150 text-zinc-400 group-hover:text-zinc-300">
+                <p className="mt-4 leading-6 duration-150 text-zinc-400 group-hover:text-zinc-300">
                   {featured.description}
                 </p>
                 <div className="absolute bottom-4 md:bottom-8">
