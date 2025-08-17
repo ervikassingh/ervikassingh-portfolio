@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
 import experience from "../../content/experience";
 
 export default function ExperiencePage() {
   const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
+  const [cardHeights, setCardHeights] = useState<{ [key: string]: number }>({});
+  const contentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   // Function to calculate duration between two dates
   const calculateDuration = (startDate: string, endDate: string): string => {
@@ -69,6 +71,26 @@ export default function ExperiencePage() {
     setExpandedCards(newExpanded);
   };
 
+  // Calculate content height when component mounts and on window resize
+  useEffect(() => {
+    const calculateHeights = () => {
+      const heights: { [key: string]: number } = {};
+      experience.forEach((exp) => {
+        const contentRef = contentRefs.current[exp.title];
+        if (contentRef) {
+          heights[exp.title] = contentRef.scrollHeight;
+        }
+      });
+      setCardHeights(heights);
+    };
+
+    calculateHeights();
+    
+    // Recalculate heights on window resize
+    window.addEventListener('resize', calculateHeights);
+    return () => window.removeEventListener('resize', calculateHeights);
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-gradient-to-tl from-zinc-900 via-blue-900/30 to-black">
       <Navigation />
@@ -97,7 +119,7 @@ export default function ExperiencePage() {
                 <div className="ml-16 w-[70%]">
                   <Card>
                     <div 
-                      className="p-6 md:p-8 cursor-pointer transition-all duration-500 ease-out hover:bg-zinc-800/20 hover:scale-[1.005]"
+                      className="p-6 md:p-8 cursor-pointer transition-all duration-300 ease-out hover:bg-zinc-800/20 hover:scale-[1.005]"
                       onClick={() => toggleCard(exp.title)}
                     >
                       <div className="flex items-start">
@@ -121,11 +143,20 @@ export default function ExperiencePage() {
                               <span>{exp.location}</span>
                             </div>
                             
-                            {/* Expandable Description */}
-                            <div className={`overflow-hidden transition-all duration-500 ease-out ${
-                              expandedCards.has(exp.title) ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'
-                            }`}>
-                              <div className="border-t border-zinc-700/50 pt-3">
+                            {/* Expandable Description with smooth height animation */}
+                            <div 
+                              className="overflow-hidden transition-all duration-700 ease-in-out"
+                              style={{
+                                height: expandedCards.has(exp.title) 
+                                  ? `${cardHeights[exp.title] || 0}px` 
+                                  : '0px',
+                                opacity: expandedCards.has(exp.title) ? 1 : 0
+                              }}
+                            >
+                              <div 
+                                ref={(el) => { contentRefs.current[exp.title] = el; }}
+                                className="border-t border-zinc-700/50 pt-3"
+                              >
                                 <p className="text-sm text-zinc-300 leading-relaxed select-none font-medium">
                                   {exp.description}
                                 </p>
@@ -134,7 +165,7 @@ export default function ExperiencePage() {
                             
                             {/* Expand/Collapse Indicator */}
                             <div className="flex items-center justify-center pt-3">
-                              <div className={`w-2 h-2 border-t-2 border-r-2 border-zinc-400 transition-all duration-500 ease-out ${
+                              <div className={`w-2 h-2 border-t-2 border-r-2 border-zinc-400 transition-all duration-500 ease-in-out ${
                                 expandedCards.has(exp.title) ? '-rotate-45 scale-110' : 'rotate-45 scale-100'
                               }`}></div>
                             </div>
