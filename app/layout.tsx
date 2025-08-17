@@ -5,16 +5,16 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default: "ervikassingh.info",
-    template: "%s | ervikassingh.info",
+    default: "ervikassingh.com",
+    template: "%s | ervikassingh.com",
   },
   description: "",
   openGraph: {
-    title: "ervikassingh.info",
+    title: "ervikassingh.com",
     description:
       "",
-    url: "https://ervikassingh.info",
-    siteName: "ervikassingh.info",
+    url: "https://ervikassingh.com",
+    siteName: "ervikassingh.com",
     locale: "en-US",
     type: "website",
   },

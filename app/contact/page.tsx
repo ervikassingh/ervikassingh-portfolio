@@ -19,7 +19,7 @@ const socials = [
 	},
 	{
 		icon: <Linkedin size={18} />,
-		href: "https://www.linkedin.com/in/ervikassingh/",
+		href: "https://linkedin.com/in/ervikassingh",
 		label: "LinkedIn",
 		handle: "in/ervikassingh",
 	},
@@ -31,7 +31,7 @@ const socials = [
 	},
 	{
 		icon: <Instagram size={18} />,
-		href: "https://www.instagram.com/wiekki",
+		href: "https://instagram.com/wiekki",
 		label: "Instagram",
 		handle: "wiekki",
 	},
