@@ -119,7 +119,7 @@ export default function ExperiencePage() {
                 <div className="ml-16 w-[70%]">
                   <Card>
                     <div 
-                      className="p-6 md:p-8 cursor-pointer transition-all duration-300 ease-out hover:bg-zinc-800/20 hover:scale-[1.005]"
+                      className="p-6 md:p-8 cursor-pointer transition-all duration-300 ease-out hover:bg-zinc-800/20 hover:border-zinc-400 group"
                       onClick={() => toggleCard(exp.title)}
                     >
                       <div className="flex items-start">
@@ -127,17 +127,17 @@ export default function ExperiencePage() {
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-col space-y-2">
                             {/* Job Title */}
-                            <h3 className="text-xl font-bold text-zinc-100 sm:text-2xl font-display select-none">
+                            <h3 className="text-xl font-bold text-zinc-100 sm:text-2xl font-display select-none group-hover:text-white transition-colors duration-300">
                               {exp.title}
                             </h3>
                             
                             {/* Company & Employment Type */}
-                            <p className="text-zinc-300 font-medium select-none">
+                            <p className="text-zinc-300 font-medium select-none group-hover:text-zinc-200 transition-colors duration-300">
                               {exp.company} · {exp.employmentType}
                             </p>
                             
                             {/* Duration & Location */}
-                            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-sm text-zinc-400 select-none">
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 text-sm text-zinc-400 select-none group-hover:text-zinc-300 transition-colors duration-300">
                               <span>{exp.startDate} - {exp.endDate} · {calculateDuration(exp.startDate, exp.endDate)}</span>
                               <span className="hidden sm:inline">·</span>
                               <span>{exp.location}</span>
@@ -157,7 +157,7 @@ export default function ExperiencePage() {
                                 ref={(el) => { contentRefs.current[exp.title] = el; }}
                                 className="border-t border-zinc-700/50 pt-3"
                               >
-                                <p className="text-sm text-zinc-300 leading-relaxed select-none font-medium">
+                                <p className="text-sm text-zinc-300 leading-relaxed select-none font-medium group-hover:text-zinc-200 transition-colors duration-300">
                                   {exp.description}
                                 </p>
                               </div>
