@@ -62,14 +62,14 @@ export default function Example() {
 								className="group h-full block"
 							>
 								<article className="p-4 md:p-8 h-full flex flex-col justify-start">
-									<div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange mb-4">
+									<div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 text-sm duration-300 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-400 drop-shadow-orange mb-4 group-hover:scale-110 transition-transform duration-300">
 										{s.icon}
 									</div>
 									<div className="text-center">
-										<h3 className="text-xl font-medium duration-1000 lg:text-2xl text-zinc-200 group-hover:text-white font-display">
+										<h3 className="text-xl font-medium duration-300 lg:text-2xl text-zinc-200 group-hover:text-white font-display">
 											{s.label}
 										</h3>
-										<p className="mt-2 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-200">
+										<p className="mt-2 text-sm duration-300 text-zinc-400 group-hover:text-zinc-200">
 											{s.handle}
 										</p>
 									</div>
@@ -93,14 +93,14 @@ export default function Example() {
 											className="group h-full block"
 										>
 											<article className="p-4 md:p-8 h-full flex flex-col justify-start">
-												<div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange mb-4">
+												<div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 text-sm duration-300 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-400 drop-shadow-orange mb-4 group-hover:scale-110 transition-transform duration-300">
 													{s.icon}
 												</div>
 												<div className="text-center">
-													<h3 className="text-xl font-medium duration-1000 lg:text-2xl text-zinc-200 group-hover:text-white font-display">
+													<h3 className="text-xl font-medium duration-300 lg:text-2xl text-zinc-200 group-hover:text-white font-display">
 														{s.label}
 													</h3>
-													<p className="mt-2 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-200">
+													<p className="mt-2 text-sm duration-300 text-zinc-400 group-hover:text-zinc-200">
 														{s.handle}
 													</p>
 												</div>
@@ -124,16 +124,16 @@ export default function Example() {
 											href={s.href}
 											target="_blank"
 											className="group h-full block"
-										>
+											>
 											<article className="p-4 md:p-8 h-full flex flex-col justify-start">
-												<div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange mb-4">
+												<div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 text-sm duration-300 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-400 drop-shadow-orange mb-4 group-hover:scale-110 transition-transform duration-300">
 													{s.icon}
 												</div>
 												<div className="text-center">
-													<h3 className="text-xl font-medium duration-1000 lg:text-2xl text-zinc-200 group-hover:text-white font-display">
+													<h3 className="text-xl font-medium duration-300 lg:text-2xl text-zinc-200 group-hover:text-white font-display">
 														{s.label}
 													</h3>
-													<p className="mt-2 text-sm duration-1000 text-zinc-400 group-hover:text-zinc-200">
+													<p className="mt-2 text-sm duration-300 text-zinc-400 group-hover:text-zinc-200">
 														{s.handle}
 													</p>
 												</div>
