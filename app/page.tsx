@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Particles from "./components/particles";
+import AnimatedText from "./components/animated-text";
 
 const navigation = [
   { name: "Experience", href: "/experience" },
@@ -33,9 +34,7 @@ export default function Home() {
         </nav>
 
         <div className="w-screen h-px animate-glow animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-        <h1 className="py-4 px-0.5 z-10 text-5xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-8xl whitespace-nowrap bg-clip-text text-center">
-          vikas singh
-        </h1>
+        <AnimatedText text="vikas singh" />
         <div className="w-screen h-px animate-glow animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
       </div>
