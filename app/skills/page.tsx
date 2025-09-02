@@ -1,6 +1,5 @@
 import React from "react";
 import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
 import languages from "../../content/languages";
 import tools from "../../content/tools";
 
