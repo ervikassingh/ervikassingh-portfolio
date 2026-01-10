@@ -51,10 +51,10 @@ export const Navigation: React.FC = () => {
 						</Link>
 						<div className="w-px h-4 bg-zinc-700/50 self-center" />
 						<Link
-							href="/contact"
+							href="/certifications"
 							className="duration-200 text-zinc-400 hover:text-zinc-100 text-sm sm:text-base"
 						>
-							Contact
+							Certifications
 						</Link>
 					</div>
 
