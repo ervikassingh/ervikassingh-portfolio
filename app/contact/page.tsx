@@ -83,7 +83,7 @@ export default function Example() {
 				{/* Medium screens: 2 columns */}
 				<div className="hidden md:grid grid-cols-2 gap-4 mx-auto lg:hidden">
 					{Array.from({ length: 2 }, (_, columnIndex) => (
-						<div key={columnIndex} className="grid grid-cols-1 gap-4">
+						<div key={`col-${columnIndex}`} className="grid grid-cols-1 gap-4">
 							{socials
 								.filter((_, i) => i % 2 === columnIndex)
 								.map((s) => (
@@ -116,7 +116,10 @@ export default function Example() {
 				{/* Large screens: 3 columns */}
 				<div className="hidden lg:grid grid-cols-1 gap-4 mx-auto lg:mx-0 lg:grid-cols-3">
 					{Array.from({ length: 3 }, (_, columnIndex) => (
-						<div key={columnIndex} className="grid grid-cols-1 gap-4">
+						<div
+							key={`col-lg-${columnIndex}`}
+							className="grid grid-cols-1 gap-4"
+						>
 							{socials
 								.filter((_, i) => i % 3 === columnIndex)
 								.map((s) => (
@@ -125,7 +128,7 @@ export default function Example() {
 											href={s.href}
 											target="_blank"
 											className="group h-full block"
-											>
+										>
 											<article className="p-4 md:p-8 h-full flex flex-col justify-start">
 												<div className="flex items-center justify-center w-12 h-12 md:w-16 md:h-16 text-sm duration-300 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-400 drop-shadow-orange mb-4 group-hover:scale-110 transition-transform duration-300">
 													{s.icon}

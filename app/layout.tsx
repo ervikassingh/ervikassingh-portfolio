@@ -4,61 +4,59 @@ import LocalFont from "next/font/local";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: {
-    default: "ervikassingh.com",
-    template: "%s | ervikassingh.com",
-  },
-  description: "",
-  openGraph: {
-    title: "ervikassingh.com",
-    description:
-      "",
-    url: "https://ervikassingh.com",
-    siteName: "ervikassingh.com",
-    locale: "en-US",
-    type: "website",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  icons: {
-    shortcut: "/favicon/favicon.ico",
-  },
+	title: {
+		default: "ervikassingh.com",
+		template: "%s | ervikassingh.com",
+	},
+	description: "",
+	openGraph: {
+		title: "ervikassingh.com",
+		description: "",
+		url: "https://ervikassingh.com",
+		siteName: "ervikassingh.com",
+		locale: "en-US",
+		type: "website",
+	},
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			"max-video-preview": -1,
+			"max-image-preview": "large",
+			"max-snippet": -1,
+		},
+	},
+	icons: {
+		shortcut: "/favicon/favicon.ico",
+	},
 };
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+	subsets: ["latin"],
+	variable: "--font-inter",
 });
 
 const calSans = LocalFont({
-  src: "../public/fonts/CalSans-SemiBold.ttf",
-  variable: "--font-calsans",
+	src: "../public/fonts/CalSans-SemiBold.ttf",
+	variable: "--font-calsans",
 });
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
-      <head>
-
-      </head>
-      <body
-        className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined
-          }`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+			<head />
+			<body
+				className={`bg-black ${
+					process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+				}`}
+			>
+				{children}
+			</body>
+		</html>
+	);
 }

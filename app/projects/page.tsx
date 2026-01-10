@@ -11,138 +11,153 @@ const redis = Redis.fromEnv();
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
-  const views = (
-    await redis.mget<number[]>(
-      ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
-    )
-  ).reduce((acc, v, i) => {
-    acc[allProjects[i].slug] = v ?? 0;
-    return acc;
-  }, {} as Record<string, number>);
+	const views = (
+		await redis.mget<number[]>(
+			...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
+		)
+	).reduce((acc, v, i) => {
+		acc[allProjects[i].slug] = v ?? 0;
+		return acc;
+	}, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "custom-ai-agent")!;
-  const top2 = allProjects.find((project) => project.slug === "taxicoin")!;
-  const top3 = allProjects.find((project) => project.slug === "mymetafi")!;
-  
-  const sorted = allProjects
-    .filter((p) => p.published)
-    .filter(
-      (project) =>
-        project.slug !== featured.slug &&
-        project.slug !== top2.slug &&
-        project.slug !== top3.slug,
-    )
-    .sort(
-      (a, b) =>
-        new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
-    );
+	const featured = allProjects.find(
+		(project) => project.slug === "custom-ai-agent",
+	);
+	const top2 = allProjects.find((project) => project.slug === "taxicoin");
+	const top3 = allProjects.find((project) => project.slug === "mymetafi");
 
-  return (
-    <div className="relative pb-16">
-      <Navigation />
-      <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-        <div className="max-w-2xl mx-auto lg:mx-0">
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
-            Projects
-          </h2>
-          <p className="mt-4 text-zinc-400">
-            Some of the projects are from work and some are on my own time.
-          </p>
-        </div>
-        <div className="w-full h-px bg-zinc-800" />
+	if (!featured || !top2 || !top3) {
+		return null;
+	}
 
-        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
-          <Card>
-            <Link href={`/projects/${featured.slug}`}>
-              <article className="relative w-full h-full p-4 md:p-8">
-                <div className="flex items-center justify-between gap-2">
-                  <div className="text-xs text-zinc-100">
-                    {featured.date ? (
-                      <time dateTime={new Date(featured.date).toISOString()}>
-                        {Intl.DateTimeFormat(undefined, {
-                          dateStyle: "medium",
-                        }).format(new Date(featured.date))}
-                      </time>
-                    ) : (
-                      <span>SOON</span>
-                    )}
-                  </div>
-                  <span className="flex items-center gap-1 text-xs text-zinc-500">
-                    <Eye className="w-4 h-4" />{" "}
-                    {Intl.NumberFormat("en-US", { notation: "compact" }).format(
-                      views[featured.slug] ?? 0,
-                    )}
-                  </span>
-                </div>
+	const sorted = allProjects
+		.filter((p) => p.published)
+		.filter(
+			(project) =>
+				project.slug !== featured.slug &&
+				project.slug !== top2.slug &&
+				project.slug !== top3.slug,
+		)
+		.sort(
+			(a, b) =>
+				new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
+				new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
+		);
 
-                <h2
-                  id="featured-post"
-                  className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
-                >
-                  {featured.title}
-                </h2>
-                <p className="mt-4 leading-6 duration-150 text-zinc-400 group-hover:text-zinc-300">
-                  {featured.description}
-                </p>
-                <div className="absolute bottom-4 md:bottom-8">
-                  <p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
-                    Read more <span aria-hidden="true">&rarr;</span>
-                  </p>
-                </div>
-              </article>
-            </Link>
-          </Card>
+	return (
+		<div className="relative pb-16">
+			<Navigation />
+			<div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+				<div className="max-w-2xl mx-auto lg:mx-0">
+					<h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
+						Projects
+					</h2>
+					<p className="mt-4 text-zinc-400">
+						Some of the projects are from work and some are on my own time.
+					</p>
+				</div>
+				<div className="w-full h-px bg-zinc-800" />
 
-          <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
-            {[top2, top3].map((project) => (
-              <Card key={project.slug}>
-                <Article project={project} views={views[project.slug] ?? 0} />
-              </Card>
-            ))}
-          </div>
-        </div>
-        <div className="hidden w-full h-px md:block bg-zinc-800" />
+				<div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
+					<Card>
+						<Link href={`/projects/${featured.slug}`}>
+							<article className="relative w-full h-full p-4 md:p-8">
+								<div className="flex items-center justify-between gap-2">
+									<div className="text-xs text-zinc-100">
+										{featured.date ? (
+											<time dateTime={new Date(featured.date).toISOString()}>
+												{Intl.DateTimeFormat(undefined, {
+													dateStyle: "medium",
+												}).format(new Date(featured.date))}
+											</time>
+										) : (
+											<span>SOON</span>
+										)}
+									</div>
+									<span className="flex items-center gap-1 text-xs text-zinc-500">
+										<Eye className="w-4 h-4" />{" "}
+										{Intl.NumberFormat("en-US", { notation: "compact" }).format(
+											views[featured.slug] ?? 0,
+										)}
+									</span>
+								</div>
 
-        {/* Small screens: 1 column */}
-        <div className="grid grid-cols-1 gap-4 mx-auto md:hidden">
-          {sorted.map((project) => (
-            <Card key={project.slug}>
-              <Article project={project} views={views[project.slug] ?? 0} />
-            </Card>
-          ))}
-        </div>
+								<h2
+									id="featured-post"
+									className="mt-4 text-3xl font-bold text-zinc-100 group-hover:text-white sm:text-4xl font-display"
+								>
+									{featured.title}
+								</h2>
+								<p className="mt-4 leading-6 duration-150 text-zinc-400 group-hover:text-zinc-300">
+									{featured.description}
+								</p>
+								<div className="absolute bottom-4 md:bottom-8">
+									<p className="hidden text-zinc-200 hover:text-zinc-50 lg:block">
+										Read more <span aria-hidden="true">&rarr;</span>
+									</p>
+								</div>
+							</article>
+						</Link>
+					</Card>
 
-        {/* Medium screens: 2 columns */}
-        <div className="hidden md:grid grid-cols-2 gap-4 mx-auto lg:hidden">
-          {Array.from({ length: 2 }, (_, columnIndex) => (
-            <div key={columnIndex} className="grid grid-cols-1 gap-4">
-              {sorted
-                .filter((_, i) => i % 2 === columnIndex)
-                .map((project) => (
-                  <Card key={project.slug}>
-                    <Article project={project} views={views[project.slug] ?? 0} />
-                  </Card>
-                ))}
-            </div>
-          ))}
-        </div>
+					<div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0 ">
+						{[top2, top3].map((project) => (
+							<Card key={project.slug}>
+								<Article project={project} views={views[project.slug] ?? 0} />
+							</Card>
+						))}
+					</div>
+				</div>
+				<div className="hidden w-full h-px md:block bg-zinc-800" />
 
-        {/* Large screens: 3 columns */}
-        <div className="hidden lg:grid grid-cols-1 gap-4 mx-auto lg:mx-0 lg:grid-cols-3">
-          {Array.from({ length: 3 }, (_, columnIndex) => (
-            <div key={columnIndex} className="grid grid-cols-1 gap-4">
-              {sorted
-                .filter((_, i) => i % 3 === columnIndex)
-                .map((project) => (
-                  <Card key={project.slug}>
-                    <Article project={project} views={views[project.slug] ?? 0} />
-                  </Card>
-                ))}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+				{/* Small screens: 1 column */}
+				<div className="grid grid-cols-1 gap-4 mx-auto md:hidden">
+					{sorted.map((project) => (
+						<Card key={project.slug}>
+							<Article project={project} views={views[project.slug] ?? 0} />
+						</Card>
+					))}
+				</div>
+
+				{/* Medium screens: 2 columns */}
+				<div className="hidden md:grid grid-cols-2 gap-4 mx-auto lg:hidden">
+					{Array.from({ length: 2 }, (_, columnIndex) => (
+						<div key={`col-${columnIndex}`} className="grid grid-cols-1 gap-4">
+							{sorted
+								.filter((_, i) => i % 2 === columnIndex)
+								.map((project) => (
+									<Card key={project.slug}>
+										<Article
+											project={project}
+											views={views[project.slug] ?? 0}
+										/>
+									</Card>
+								))}
+						</div>
+					))}
+				</div>
+
+				{/* Large screens: 3 columns */}
+				<div className="hidden lg:grid grid-cols-1 gap-4 mx-auto lg:mx-0 lg:grid-cols-3">
+					{Array.from({ length: 3 }, (_, columnIndex) => (
+						<div
+							key={`col-lg-${columnIndex}`}
+							className="grid grid-cols-1 gap-4"
+						>
+							{sorted
+								.filter((_, i) => i % 3 === columnIndex)
+								.map((project) => (
+									<Card key={project.slug}>
+										<Article
+											project={project}
+											views={views[project.slug] ?? 0}
+										/>
+									</Card>
+								))}
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	);
 }
