@@ -20,9 +20,9 @@ export default async function ProjectsPage() {
     return acc;
   }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "taxicoin")!;
-  const top2 = allProjects.find((project) => project.slug === "nestjs-monolithic-template")!;
-  const top3 = allProjects.find((project) => project.slug === "nestjs-microservices-template")!;
+  const featured = allProjects.find((project) => project.slug === "custom-ai-agent")!;
+  const top2 = allProjects.find((project) => project.slug === "taxicoin")!;
+  const top3 = allProjects.find((project) => project.slug === "mymetafi")!;
   
   const sorted = allProjects
     .filter((p) => p.published)

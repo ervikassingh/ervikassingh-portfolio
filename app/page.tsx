@@ -44,6 +44,17 @@ export default function Home() {
           <span className="text-zinc-300 font-medium">5+ years of experience</span>{" "}
           building decentralized applications.
         </h2>
+        <div className="mt-4">
+          <Link
+            href="https://drive.google.com/file/d/1emaSFLFhWBOVW-M3pgtejRUMM7LpEIX8/view"
+            target="_blank"
+            className="group inline-block text-base duration-500 text-zinc-500 hover:text-zinc-300 transition-all"
+          >
+            <span className="underline-slide glow-pulse transition-all duration-500">
+              Download Resume
+            </span>
+          </Link>
+        </div>
       </div>
     </div>
   );

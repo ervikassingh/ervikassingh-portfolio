@@ -6,4 +6,46 @@
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255,255,255,0.3);
   }
+}
+
+@layer utilities {
+  .underline-slide {
+    position: relative;
+  }
+
+  .underline-slide::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.5s ease-in-out;
+  }
+
+  .group:hover .underline-slide::after {
+    width: 100%;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0)) 
+              drop-shadow(0 0 20px rgba(255, 255, 255, 0));
+    }
+    50% {
+      filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6)) 
+              drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+    }
+  }
+
+  .glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  .group:hover .glow-pulse {
+    animation: none;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6)) 
+            drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+  }
 } 

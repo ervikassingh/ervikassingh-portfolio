@@ -1,10 +1,23 @@
 const experience = [
   {
+    title: "Web3 Backend Developer",
+    company: "The Hashgraph Group",
+    employmentType: "Full-time",
+    startDate: "Oct 2025",
+    endDate: "Present",
+    location: "Pfäffikon, Zurich, Switzerland",
+    description: [
+      "Building scalable backend infrastructure for Web3 applications on Hedera Hashgraph.",
+      "Developing distributed ledger technology (DLT) solutions for enterprise clients.",
+      "Implementing secure and efficient blockchain protocols and services."
+    ]
+  },
+  {
     title: "Software Engineer - Blockchain",
     company: "Appinventiv Technologies Pvt. Ltd.",
     employmentType: "Full-time",
     startDate: "Dec 2021",
-    endDate: "Present",
+    endDate: "Sep 2025",
     location: "Noida, Uttar Pradesh, India",
     description: [
       "Developed asset tokenization projects, built 3+ DAOs, and integrated DeFi protocols into applications to deliver secure and scalable blockchain solutions.",

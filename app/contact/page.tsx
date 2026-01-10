@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Github, Linkedin, Twitter, Instagram, FileText, ArrowRight } from "lucide-react";
+import { Mail, Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import Link from "next/link";
 import { Navigation } from "../components/nav";
 import { Card } from "../components/card";
@@ -43,26 +43,13 @@ export default function Example() {
 		<div className="relative pb-16 min-h-screen bg-gradient-to-tl from-zinc-900 via-blue-900/30 to-black">
 			<Navigation />
 			<div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-				<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-					<div className="max-w-2xl">
-						<h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
-							Contact
-						</h2>
-						<p className="mt-4 text-zinc-400">
-							Get in touch with me through any of these platforms.
-						</p>
-					</div>
-					
-					{/* Resume Button */}
-					<Link
-						href="https://drive.google.com/file/d/1emaSFLFhWBOVW-M3pgtejRUMM7LpEIX8/view"
-						target="_blank"
-						className="group flex items-center gap-3 px-6 py-3 bg-zinc-800/20 border border-zinc-700/50 rounded-lg text-zinc-300 hover:text-white hover:bg-zinc-800/30 hover:border-zinc-400 transition-all duration-300 hover:scale-105"
-					>
-						<FileText size={20} className="group-hover:scale-110 transition-transform duration-300" />
-						<span className="font-medium">Resume</span>
-						<ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-					</Link>
+				<div className="max-w-2xl">
+					<h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
+						Contact
+					</h2>
+					<p className="mt-4 text-zinc-400">
+						Get in touch with me through any of these platforms.
+					</p>
 				</div>
 				<div className="w-full h-px bg-zinc-800" />
 
