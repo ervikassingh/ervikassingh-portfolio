@@ -35,26 +35,26 @@ export const Navigation: React.FC = () => {
 						>
 							Experience
 						</Link>
-						<div className="w-px h-4 bg-zinc-700/50 self-center"></div>
+						<div className="w-px h-4 bg-zinc-700/50 self-center" />
 						<Link
 							href="/skills"
 							className="duration-200 text-zinc-400 hover:text-zinc-100 text-sm sm:text-base"
 						>
 							Skills
 						</Link>
-						<div className="w-px h-4 bg-zinc-700/50 self-center"></div>
+						<div className="w-px h-4 bg-zinc-700/50 self-center" />
 						<Link
 							href="/projects"
 							className="duration-200 text-zinc-400 hover:text-zinc-100 text-sm sm:text-base"
 						>
 							Projects
 						</Link>
-						<div className="w-px h-4 bg-zinc-700/50 self-center"></div>
+						<div className="w-px h-4 bg-zinc-700/50 self-center" />
 						<Link
-							href="/contact"
+							href="/certifications"
 							className="duration-200 text-zinc-400 hover:text-zinc-100 text-sm sm:text-base"
 						>
-							Contact
+							Certifications
 						</Link>
 					</div>
 

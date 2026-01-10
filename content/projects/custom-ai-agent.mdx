@@ -1,0 +1,106 @@
+---
+title: custom-ai-agent
+description: A monorepo containing a NestJS backend and Next.js frontend for chatting with a local Llama 3.2 model via Ollama, with RAG (Retrieval-Augmented Generation) capabilities for context-aware responses.
+repository: ervikassingh/custom-ai-agent
+date: 2025-12-26
+published: true
+---
+
+## Overview
+
+Custom AI Agent is a full-stack application that enables users to chat with a local Llama 3.2 model via Ollama, eliminating the need for external API keys. The application features RAG (Retrieval-Augmented Generation) capabilities, allowing for context-aware responses by leveraging your own data. Built as a Turborepo monorepo, it combines a NestJS backend with a Next.js frontend, providing a seamless chat experience with local AI models.
+
+## Key Features
+
+- **Local LLM**: Chat with Llama 3.2 via Ollama without requiring external API keys
+- **RAG Integration**: Context-aware responses using your own data through retrieval-augmented generation
+- **PostgreSQL**: Document storage and management for knowledge base
+- **Qdrant**: Vector database for semantic search and similarity matching
+- **Auto-sync**: Hourly cron job automatically syncs documents to vector database
+- **Docker Ready**: One command to run everything with Docker Compose
+- **Multiple Model Support**: Easy configuration to use different Ollama models (llama3.2:1b, llama3.2:3b, mistral, codellama, phi3)
+- **Embedding Support**: Uses nomic-embed-text for generating document embeddings
+- **Incremental Sync**: Support for both full and incremental document synchronization
+
+## Architecture
+
+The application follows a microservices-inspired architecture within a monorepo:
+
+- **Next.js Frontend** (port 3000): Modern React-based UI for chat interface
+- **NestJS Backend** (port 3001): RESTful API handling chat requests and RAG operations
+- **Ollama** (port 11434): Local LLM runtime for model inference and embeddings
+- **PostgreSQL** (port 5432): Relational database for document storage
+- **Qdrant** (port 6333): Vector database for semantic search
+
+### RAG Flow
+
+1. **Ingestion**: Documents in PostgreSQL → Chunked → Embedded → Stored in Qdrant
+2. **Query**: User question → Embedded → Qdrant similarity search → Top-k relevant chunks
+3. **Generation**: Relevant context + question → Ollama LLM → Response
+
+## Technologies Used
+
+- **NestJS** - Progressive Node.js framework for building scalable backend APIs
+- **Next.js** - React framework for building the frontend application
+- **TypeScript** - Type-safe JavaScript for better development experience
+- **Turborepo** - High-performance build system for JavaScript and TypeScript codebases
+- **Ollama** - Local LLM runtime for running models without external APIs
+- **PostgreSQL** - Relational database for document storage
+- **Qdrant** - Vector database for semantic search and similarity matching
+- **Docker & Docker Compose** - Containerization for easy deployment and development
+- **pnpm** - Fast, disk space efficient package manager
+
+## Getting Started
+
+The easiest way to run the application is with Docker:
+
+```bash
+# For systems with NVIDIA GPU
+docker compose up --build
+
+# For CPU-only systems
+docker compose -f docker-compose.cpu.yml up --build
+```
+
+The application will automatically:
+1. Start PostgreSQL database
+2. Start Qdrant vector database
+3. Start Ollama
+4. Pull the required LLM and embedding models
+5. Seed sample documents
+6. Start both backend and frontend
+
+After startup, trigger a sync to index documents for RAG:
+
+```bash
+curl -X POST http://localhost:3001/rag/sync
+```
+
+## API Endpoints
+
+- **POST /chat** - Send a message and receive a RAG-augmented response
+- **GET /chat/health** - Check Ollama and model health status
+- **POST /rag/sync** - Trigger full sync of documents to vector DB
+- **POST /rag/sync/incremental** - Trigger incremental sync
+- **GET /rag/sync/status** - Get sync status and statistics
+- **POST /rag/search** - Test RAG search (debug endpoint)
+
+## Benefits
+
+- **Privacy**: All data and models run locally, no external API calls
+- **Cost-Effective**: No per-request pricing, use your own hardware
+- **Customizable**: Easy to add your own documents and knowledge base
+- **Fast Development**: Docker setup gets you running in minutes
+- **Scalable**: Built with production-ready technologies and patterns
+- **Flexible**: Support for multiple models and easy configuration
+
+## Use Cases
+
+This project is ideal for:
+- Building custom AI assistants with your own knowledge base
+- Creating context-aware chatbots for specific domains
+- Learning RAG implementation and vector database integration
+- Developing local AI applications without external dependencies
+- Building internal knowledge bases with AI-powered search
+
+The application demonstrates modern AI application architecture, combining traditional databases with vector search to create intelligent, context-aware chat experiences.
