@@ -34,7 +34,12 @@ export default function SkillsPage() {
                   className="flex items-center space-x-4 px-4 py-2 bg-zinc-800/20 rounded-lg border border-zinc-700/50 hover:border-zinc-400 hover:bg-zinc-800/30 transition-all duration-300 cursor-pointer group"
                 >
                   <div className="flex-shrink-0">
-                    <img src={lang.icon} alt={lang.name} className="w-6 h-auto" />
+                    <img 
+                      src={lang.icon} 
+                      alt={lang.name} 
+                      className="w-6 h-auto"
+                      style={{ filter: 'brightness(0) invert(1)' }}
+                    />
                   </div>
                   <span className="text-zinc-300 font-medium group-hover:text-white transition-colors duration-300">{lang.name}</span>
                 </a>
@@ -57,7 +62,12 @@ export default function SkillsPage() {
                   className="flex items-center space-x-4 px-4 py-2 bg-zinc-800/20 rounded-lg border border-zinc-700/50 hover:border-zinc-400 hover:bg-zinc-800/30 transition-all duration-300 cursor-pointer group"
                 >
                   <div className="flex-shrink-0">
-                    <img src={tool.icon} alt={tool.name} className="w-6 h-auto" />
+                    <img 
+                      src={tool.icon} 
+                      alt={tool.name} 
+                      className="w-6 h-auto"
+                      style={{ filter: 'brightness(0) invert(1)' }}
+                    />
                   </div>
                   <span className="text-zinc-300 font-medium group-hover:text-white transition-colors duration-300">{tool.name}</span>
                 </a>
