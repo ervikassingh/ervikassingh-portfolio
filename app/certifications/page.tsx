@@ -23,8 +23,8 @@ export default function CertificationsPage() {
 				<div className="w-full h-px bg-zinc-800" />
 
 				<div className="grid grid-cols-1 gap-6 mx-auto lg:grid-cols-2">
-					{certifications.map((cert, index) => (
-						<Card key={index}>
+					{certifications.map((cert) => (
+						<Card key={cert.credentialId}>
 							<div className="p-6 md:p-8 flex flex-col h-full">
 								<div>
 									<h3 className="text-xl font-bold text-zinc-100 sm:text-2xl font-display mb-2">
@@ -42,11 +42,8 @@ export default function CertificationsPage() {
 
 									{/* Skills */}
 									<ul className="list-disc list-inside space-y-1 mb-4">
-										{cert.skills.map((skill, skillIndex) => (
-											<li
-												key={skillIndex}
-												className="text-xs text-zinc-400"
-											>
+										{cert.skills.map((skill) => (
+											<li key={skill} className="text-xs text-zinc-400">
 												{skill}
 											</li>
 										))}
