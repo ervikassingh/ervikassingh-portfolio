@@ -1,5 +1,13 @@
 const certifications = [
 	{
+		title: "Noir Programming And ZK Circuits",
+		issuingOrganization: "Cyfrin Updraft",
+		issueDate: "Jan 2026",
+		credentialId: "7XCINQZ21PQ8",
+		credentialUrl: "https://profiles.cyfrin.io/u/ervikassingh/achievements/noir-programming-and-zk-circuits", 
+		skills: ["Zero-Knowledge Proofs", "Noir"],
+	},
+	{
 		title: "Fundamentals of Zero-Knowledge Proofs (ZKPs)",
 		issuingOrganization: "Cyfrin Updraft",
 		issueDate: "Jan 2026",
