@@ -2,11 +2,119 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * Design tokens — single place to change palette.
+ * Use space-separated RGB channels for Tailwind alpha: rgb(var(--token) / <alpha-value>)
+ */
 @layer base {
-  .text-edge-outline {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-  }
-  .clip-hexagon {
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  }
-} 
+	:root {
+		color-scheme: light;
+
+		--color-surface: 245 245 244;
+		--color-surface-elevated: 250 250 249;
+		--color-surface-inverse: 41 37 36;
+		--color-surface-inverse-hover: 68 64 60;
+		--color-surface-inverse-soft: 214 211 209;
+
+		--color-fg: 28 25 23;
+		--color-fg-secondary: 41 37 36;
+		--color-fg-muted: 87 83 78;
+		--color-fg-subtle: 120 113 108;
+		--color-fg-on-inverse: 250 250 249;
+		--color-fg-on-inverse-muted: 231 229 228;
+
+		--color-border: 231 229 228;
+		--color-border-strong: 214 211 209;
+		--color-border-inverse: 68 64 60;
+
+		--color-link: 29 78 216;
+		--color-accent: 87 83 78;
+		--color-accent-soft: 120 113 108;
+		--color-accent-line: 59 130 246;
+		--color-accent-line-soft: 96 165 250;
+
+		--color-ring-focus: 168 162 158;
+
+		--color-code-block: 28 25 23;
+		--color-code-inline-bg: 231 229 228;
+		--color-code-inline-fg: 41 37 36;
+		--color-code-line-highlight: 231 229 228;
+		--color-code-line-highlight-dark: 120 113 108;
+
+		--color-table-stripe: 245 245 244;
+		--color-table-border: 214 211 209;
+
+		--color-quote-border: 168 162 158;
+		--color-quote-fg: 41 37 36;
+		--color-quote-muted: 87 83 78;
+
+		--color-display-from: 41 37 36;
+		--color-display-via: 68 64 60;
+		--color-display-to: 28 25 23;
+
+		--color-timeline-line: 214 211 209;
+		--color-timeline-dot: 87 83 78;
+		--color-timeline-ring: 245 245 244;
+
+		--text-edge-stroke-opacity: 0.28;
+		--particle-rgb: 87, 83, 78;
+	}
+
+	.dark {
+		color-scheme: dark;
+
+		--color-surface: 12 10 9;
+		--color-surface-elevated: 28 25 23;
+		--color-surface-inverse: 214 211 209;
+		--color-surface-inverse-hover: 231 229 228;
+		--color-surface-inverse-soft: 68 64 60;
+
+		--color-fg: 245 245 244;
+		--color-fg-secondary: 231 229 228;
+		--color-fg-muted: 168 162 158;
+		--color-fg-subtle: 120 113 108;
+		--color-fg-on-inverse: 28 25 23;
+		--color-fg-on-inverse-muted: 41 37 36;
+
+		--color-border: 41 37 36;
+		--color-border-strong: 68 64 60;
+		--color-border-inverse: 87 83 78;
+
+		--color-link: 245 245 244;
+		--color-accent: 168 162 158;
+		--color-accent-soft: 120 113 108;
+		--color-accent-line: 96 165 250;
+		--color-accent-line-soft: 147 197 253;
+
+		--color-ring-focus: 120 113 108;
+
+		--color-code-block: 28 25 23;
+		--color-code-inline-bg: 214 211 209;
+		--color-code-inline-fg: 231 229 228;
+		--color-code-line-highlight: 120 113 108;
+		--color-code-line-highlight-dark: 168 162 158;
+
+		--color-table-stripe: 28 25 23;
+		--color-table-border: 68 64 60;
+
+		--color-quote-border: 120 113 108;
+		--color-quote-fg: 214 211 209;
+		--color-quote-muted: 168 162 158;
+
+		--color-display-from: 245 245 244;
+		--color-display-via: 231 229 228;
+		--color-display-to: 168 162 158;
+
+		--color-timeline-line: 68 64 60;
+		--color-timeline-dot: 168 162 158;
+		--color-timeline-ring: 12 10 9;
+
+		--text-edge-stroke-opacity: 0.22;
+		--particle-rgb: 231, 229, 228;
+	}
+
+	.text-edge-outline {
+		-webkit-text-stroke: 1px
+			rgb(var(--color-fg-muted) / var(--text-edge-stroke-opacity));
+	}
+}
