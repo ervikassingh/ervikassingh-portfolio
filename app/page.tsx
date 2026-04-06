@@ -20,7 +20,7 @@ import {
 	heroDividerLineClass,
 	homeStackSectionClass,
 } from "./styles/classes/hero";
-import { siteContentColumnClass } from "./styles/classes/layout";
+import { siteContentColumnClass } from "./styles/classes/site-content-column";
 
 const skillStripItems = [...languages, ...tools];
 

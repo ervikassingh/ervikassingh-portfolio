@@ -5,7 +5,7 @@ import { ReportView } from "./view";
 
 import { Mdx } from "@/app/components/mdx";
 import { SiteFooter } from "@/app/components/layout/site-footer";
-import { siteContentColumnClass } from "@/app/styles/classes/layout";
+import { siteContentColumnClass } from "@/app/styles/classes/site-content-column";
 import "./mdx.css";
 
 export const revalidate = 60;

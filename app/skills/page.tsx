@@ -2,7 +2,7 @@ import { Navigation } from "../components/layout/nav";
 import { PageHero } from "../components/layout/page-hero";
 import { SiteFooter } from "../components/layout/site-footer";
 import { SitePageShell } from "../components/layout/site-page-shell";
-import { siteContentColumnClass } from "@/app/styles/classes/layout";
+import { siteContentColumnClass } from "@/app/styles/classes/site-content-column";
 import languages from "../../content/languages";
 import tools from "../../content/tools";
 

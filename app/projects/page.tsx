@@ -7,7 +7,7 @@ import { SiteFooter } from "../components/layout/site-footer";
 import { Article } from "./article";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
-import { siteContentColumnClass } from "@/app/styles/classes/layout";
+import { siteContentColumnClass } from "@/app/styles/classes/site-content-column";
 
 const redis = Redis.fromEnv();
 
