@@ -1,4 +1,4 @@
-import { siteContentColumnClass } from "@/app/styles/classes/layout";
+import { siteContentColumnClass } from "@/app/styles/classes/site-content-column";
 import {
 	pageHeroDescriptionClass,
 	pageHeroSectionClass,

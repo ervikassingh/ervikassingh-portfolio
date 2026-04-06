@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React from "react";
 import { SiteHeader } from "@/app/components/layout/site-header";
-import { siteContentColumnClass } from "@/app/styles/classes/layout";
+import { siteContentColumnClass } from "@/app/styles/classes/site-content-column";
 import { subpageHeroBackdropClass } from "@/app/styles/classes/sections";
 
 type Props = {
