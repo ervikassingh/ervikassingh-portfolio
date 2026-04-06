@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { useMousePosition } from "@/util/mouse";
 
 interface ParticlesProps {
@@ -31,19 +32,36 @@ export default function Particles({
 	ease = 50,
 	refresh = false,
 }: ParticlesProps) {
+	const { resolvedTheme } = useTheme();
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const canvasContainerRef = useRef<HTMLDivElement>(null);
 	const context = useRef<CanvasRenderingContext2D | null>(null);
 	const circles = useRef<Circle[]>([]);
+	const particleRgb = useRef("87, 83, 78");
 	const mousePosition = useMousePosition();
 	const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
 	const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
 	const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
 
+	const syncParticleRgbFromTokens = () => {
+		if (typeof document === "undefined") return;
+		const raw = getComputedStyle(document.documentElement)
+			.getPropertyValue("--particle-rgb")
+			.trim();
+		if (raw) particleRgb.current = raw;
+	};
+
+	useEffect(() => {
+		if (resolvedTheme === undefined) return;
+		syncParticleRgbFromTokens();
+		initCanvas();
+	}, [resolvedTheme]);
+
 	useEffect(() => {
 		if (canvasRef.current) {
 			context.current = canvasRef.current.getContext("2d");
 		}
+		syncParticleRgbFromTokens();
 		initCanvas();
 		animate();
 		window.addEventListener("resize", initCanvas);
@@ -124,7 +142,7 @@ export default function Particles({
 			context.current.translate(translateX, translateY);
 			context.current.beginPath();
 			context.current.arc(x, y, size, 0, 2 * Math.PI);
-			context.current.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+			context.current.fillStyle = `rgba(${particleRgb.current}, ${alpha})`;
 			context.current.fill();
 			context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
 

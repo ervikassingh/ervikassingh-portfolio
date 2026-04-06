@@ -1,106 +1,121 @@
 import Link from "next/link";
-import React from "react";
+import { Download, Mail } from "lucide-react";
+import { allProjects } from "contentlayer/generated";
+import experienceData from "../content/experience";
+import languages from "../content/languages";
+import tools from "../content/tools";
+import { HomeBottomShowcase } from "./components/home/home-bottom-showcase";
+import { HomeStackSection } from "./components/home/home-stack-section";
+import { ScrollIndicator } from "./components/layout/scroll-indicator";
+import { SiteFooter } from "./components/layout/site-footer";
+import { SiteHeader } from "./components/layout/site-header";
+import { SitePageShell } from "./components/layout/site-page-shell";
+import AnimatedText from "./components/ui/animated-text";
 import {
-	Download,
-	Mail,
-	Github,
-	Linkedin,
-	Twitter,
-	Instagram,
-} from "lucide-react";
-import Particles from "./components/particles";
-import AnimatedText from "./components/animated-text";
-import socialsData from "../content/socials";
+	heroCtaContent,
+	heroCtaOutlineClass,
+	heroCtaSolidClass,
+} from "./styles/classes/buttons";
+import {
+	heroDividerLineClass,
+	homeStackSectionClass,
+} from "./styles/classes/hero";
+import { siteContentColumnClass } from "./styles/classes/layout";
 
-const navigation = [
-	{ name: "Experience", href: "/experience" },
-	{ name: "Skills", href: "/skills" },
-	{ name: "Projects", href: "/projects" },
-	{ name: "Certifications", href: "/certifications" },
-];
-
-const iconMap = {
-	Mail,
-	Github,
-	Linkedin,
-	Twitter,
-	Instagram,
-};
-
-const socials = socialsData.map((social) => {
-	const IconComponent = iconMap[social.icon as keyof typeof iconMap];
-	return {
-		...social,
-		icon: <IconComponent size={20} />,
-	};
-});
+const skillStripItems = [...languages, ...tools];
 
 export default function Home() {
+	const featuredProjects = allProjects
+		.filter((p) => p.published)
+		.filter((project) =>
+			["custom-ai-agent", "taxicoin", "mymetafi"].includes(project.slug),
+		)
+		.sort(
+			(a, b) =>
+				new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
+				new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
+		);
+
 	return (
-		<div className="w-screen min-h-screen relative py-12 flex flex-col items-center justify-center overflow-hidden bg-gradient-to-tl from-zinc-900 via-blue-900/30 to-black">
-			<Particles
-				className="absolute inset-0 -z-10 animate-fade-in"
-				quantity={100}
-			/>
+		<SitePageShell particleQuantity={150}>
+			<SiteHeader />
 
-			<div className="flex flex-col items-center justify-center flex-1">
-				<nav className="mb-12 animate-fade-in">
-					<ul className="flex items-center justify-center gap-8 text-lg font-semibold">
-						{navigation.map((item) => (
+			<section className="relative z-10 flex min-h-[100svh] flex-col items-center justify-center pb-16 pt-24 md:min-h-screen md:pb-24">
+				<div className="flex w-full flex-col items-center justify-center">
+					<div
+						className={heroDividerLineClass}
+						style={{ animationDelay: "0.1s" }}
+					/>
+					<div
+						className="opacity-0 motion-safe:animate-hero-rise motion-reduce:animate-none motion-reduce:opacity-100"
+						style={{ animationDelay: "0.2s" }}
+					>
+						<AnimatedText text="vikas singh" className="my-2" />
+					</div>
+					<div
+						className={heroDividerLineClass}
+						style={{ animationDelay: "0.35s" }}
+					/>
+
+					<div
+						className="mt-8 max-w-lg px-6 text-center opacity-0 motion-safe:animate-hero-rise motion-reduce:animate-none motion-reduce:opacity-100"
+						style={{ animationDelay: "0.5s" }}
+					>
+						<h2 className="text-lg leading-relaxed text-fg-muted">
+							Web3 engineer with{" "}
+							<span className="font-medium tracking-wide text-fg-secondary">
+								5+ years of experience
+							</span>{" "}
+							building decentralized applications, smart contracts, and scalable
+							backend infrastructure.
+						</h2>
+					</div>
+
+					<div
+						className="mt-12 flex flex-col items-center gap-8 opacity-0 motion-safe:animate-hero-rise motion-reduce:animate-none motion-reduce:opacity-100"
+						style={{ animationDelay: "0.72s" }}
+					>
+						<div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
 							<Link
-								key={item.href}
-								href={item.href}
-								className="underline text-sm duration-500 text-zinc-500 hover:text-zinc-300"
-							>
-								{item.name}
-							</Link>
-						))}
-					</ul>
-				</nav>
-
-				<div className="w-screen h-px animate-glow animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-				<AnimatedText text="vikas singh" />
-				<div className="w-screen h-px animate-glow animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-				<div className="mt-8 text-center animate-fade-in">
-					<h2 className="text-sm text-zinc-500 ">
-						Web3 engineer with{" "}
-						<span className="text-zinc-300 font-medium">
-							5+ years of experience
-						</span>{" "}
-						building decentralized applications.
-					</h2>
-				</div>
-			</div>
-
-			<div className="mt-auto mb-8 animate-fade-in">
-				<Link
-					href="https://drive.google.com/file/d/1emaSFLFhWBOVW-M3pgtejRUMM7LpEIX8/view"
-					target="_blank"
-					className="group inline-flex items-center justify-center px-4 py-2 text-xs font-medium text-zinc-300 border border-zinc-700/50 rounded-lg bg-zinc-900/20 backdrop-blur-sm transition-all duration-500 hover:border-zinc-500/50 hover:bg-zinc-800/30 hover:text-zinc-100 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
-				>
-					<span className="relative">Download Resume</span>
-					<Download className="ml-2 w-3.5 h-3.5" />
-				</Link>
-			</div>
-
-			<footer className="mt-auto w-full px-6 py-6 animate-fade-in">
-				<div className="max-w-7xl mx-auto">
-					<div className="flex items-center justify-center gap-8 md:gap-10">
-						{socials.map((social) => (
-							<Link
-								key={social.label}
-								href={social.href}
+								href="https://drive.google.com/file/d/1emaSFLFhWBOVW-M3pgtejRUMM7LpEIX8/view"
 								target="_blank"
 								rel="noopener noreferrer"
-								aria-label={social.label}
-								className="group flex items-center justify-center transition-all duration-300 text-zinc-400 hover:text-zinc-200 hover:scale-110"
+								className={heroCtaOutlineClass}
 							>
-								{social.icon}
+								<span className={heroCtaContent}>
+									<span>Resume</span>
+									<Download className="h-4 w-4 shrink-0" aria-hidden />
+								</span>
 							</Link>
-						))}
+							<Link
+								href="mailto:mail.ervikassingh@gmail.com"
+								className={heroCtaSolidClass}
+							>
+								<span className={heroCtaContent}>
+									<span>Get in touch</span>
+									<Mail className="h-4 w-4 shrink-0" aria-hidden />
+								</span>
+							</Link>
+						</div>
 					</div>
 				</div>
-			</footer>
-		</div>
+
+				<ScrollIndicator />
+			</section>
+
+			<div id="stack" className={homeStackSectionClass}>
+				<div
+					className={`flex flex-col gap-16 border-t border-border/80 py-14 md:gap-20 md:py-16 dark:border-border/60 ${siteContentColumnClass}`}
+				>
+					<HomeStackSection items={skillStripItems} />
+					<HomeBottomShowcase
+						projects={featuredProjects}
+						currentRole={experienceData[0]}
+					/>
+				</div>
+			</div>
+
+			<SiteFooter />
+		</SitePageShell>
 	);
 }

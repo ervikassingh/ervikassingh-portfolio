@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.pnpm-store
 
 # testing
 /coverage
@@ -26,13 +27,19 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
-.env*.local
+.env*
 
 # vercel
 .vercel
 
 # vscode
 .vscode
+
+# cursor
+.cursor
+
+# antigravity
+.agent
 
 # typescript
 *.tsbuildinfo

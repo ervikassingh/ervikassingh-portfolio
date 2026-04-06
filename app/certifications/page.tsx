@@ -1,72 +1,71 @@
-"use client";
-
-import React from "react";
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
+import { Card } from "../components/ui/card";
+import { Navigation } from "../components/layout/nav";
+import { PageHero } from "../components/layout/page-hero";
+import { SiteFooter } from "../components/layout/site-footer";
+import { SitePageShell } from "../components/layout/site-page-shell";
+import { siteContentColumnClass } from "@/app/styles/classes/layout";
 import { ExternalLink } from "lucide-react";
 import certifications from "../../content/certifications";
 
+const credentialCtaClass =
+	"inline-flex items-center gap-2 rounded-lg border border-border-strong/90 bg-surface-elevated/90 px-4 py-2 text-xs font-medium text-fg-secondary backdrop-blur-sm transition-all duration-300 group-hover:border-border-inverse group-hover:bg-surface-elevated group-hover:text-fg dark:border-border-inverse/50 dark:bg-surface-elevated/35 dark:text-fg-muted dark:group-hover:border-border-strong/50 dark:group-hover:bg-surface-elevated/40 dark:group-hover:text-fg";
+
 export default function CertificationsPage() {
 	return (
-		<div className="relative min-h-screen bg-gradient-to-tl from-zinc-900 via-blue-900/30 to-black">
+		<SitePageShell>
 			<Navigation />
-			<div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32 pb-16">
-				<div className="max-w-2xl mx-auto lg:mx-0">
-					<h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl font-display">
-						Licenses & certifications
-					</h2>
-					<p className="mt-4 text-zinc-400">
-						Professional certifications and licenses I've earned throughout my
-						career.
-					</p>
-				</div>
-				<div className="w-full h-px bg-zinc-800" />
+			<PageHero
+				title="Licenses & certifications"
+				description="Formal validation of the skills behind the work - cloud, security, and Web3-adjacent platforms I rely on in production."
+			/>
 
-				<div className="grid grid-cols-1 gap-6 mx-auto lg:grid-cols-2">
+			<div
+				className={`relative z-10 pb-16 pt-10 md:pt-14 ${siteContentColumnClass}`}
+			>
+				<div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
 					{certifications.map((cert) => (
 						<Card key={cert.credentialId}>
-							<div className="p-6 md:p-8 flex flex-col h-full">
+							<a
+								href={cert.credentialUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex h-full cursor-pointer flex-col p-6 no-underline outline-none ring-offset-2 ring-offset-surface focus-visible:ring-2 focus-visible:ring-ring-focus md:p-8"
+							>
 								<div>
-									<h3 className="text-xl font-bold text-zinc-100 sm:text-2xl font-display mb-2">
+									<h3 className="mb-2 font-display text-xl font-bold text-fg sm:text-2xl">
 										{cert.title}
 									</h3>
-									<p className="text-sm text-zinc-400 mb-1">
+									<p className="mb-1 text-sm text-fg-muted">
 										{cert.issuingOrganization}
 									</p>
-									<p className="text-sm text-zinc-400 mb-1">
+									<p className="mb-1 text-sm text-fg-muted">
 										Issued {cert.issueDate}
 									</p>
-									<p className="text-xs text-zinc-500 mb-4">
+									<p className="mb-4 text-xs text-fg-subtle">
 										Credential ID: {cert.credentialId}
 									</p>
 
-									{/* Skills */}
-									<ul className="list-disc list-inside space-y-1 mb-4">
+									<ul className="mb-4 list-inside list-disc space-y-1">
 										{cert.skills.map((skill) => (
-											<li key={skill} className="text-xs text-zinc-400">
+											<li key={skill} className="text-xs text-fg-muted">
 												{skill}
 											</li>
 										))}
 									</ul>
 								</div>
 
-								{/* Show credential button */}
 								<div className="mt-auto flex justify-end">
-									<a
-										href={cert.credentialUrl}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-300 border border-zinc-700/50 rounded-lg bg-zinc-900/20 backdrop-blur-sm transition-all duration-300 hover:border-zinc-500/50 hover:bg-zinc-800/30 hover:text-zinc-100"
-									>
+									<span className={credentialCtaClass}>
 										Show credential
-										<ExternalLink className="w-3.5 h-3.5" />
-									</a>
+										<ExternalLink className="h-3.5 w-3.5" aria-hidden />
+									</span>
 								</div>
-							</div>
+							</a>
 						</Card>
 					))}
 				</div>
 			</div>
-		</div>
+			<SiteFooter />
+		</SitePageShell>
 	);
 }

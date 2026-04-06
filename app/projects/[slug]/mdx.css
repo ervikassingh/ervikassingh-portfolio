@@ -1,5 +1,5 @@
 [data-rehype-pretty-code-fragment] code {
-    @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-black;
+    @apply grid min-w-full break-words rounded-none border-0 bg-transparent p-0 text-sm text-fg;
     counter-reset: line;
     box-decoration-break: clone;
   }
@@ -13,16 +13,16 @@
     width: 1rem;
     margin-right: 1rem;
     text-align: right;
-    color: gray;
+    @apply text-fg-subtle;
   }
   [data-rehype-pretty-code-fragment] .line--highlighted {
-    @apply bg-zinc-300 bg-opacity-10;
+    @apply bg-code-line-highlight/10 dark:bg-code-line-highlight-dark/15;
   }
   [data-rehype-pretty-code-fragment] .line-highlighted span {
     @apply relative;
   }
   [data-rehype-pretty-code-fragment] .word--highlighted {
-    @apply rounded-md bg-zinc-300 bg-opacity-10 p-1;
+    @apply rounded-md bg-code-line-highlight/10 p-1 dark:bg-code-line-highlight-dark/15;
   }
   [data-rehype-pretty-code-title] {
     @apply mt-4 py-2 px-4 text-sm font-medium;

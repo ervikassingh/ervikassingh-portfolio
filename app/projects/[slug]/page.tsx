@@ -2,9 +2,10 @@ import { notFound } from "next/navigation";
 import { allProjects } from "contentlayer/generated";
 import { Header } from "./header";
 import { ReportView } from "./view";
-import { Redis } from "@upstash/redis";
 
 import { Mdx } from "@/app/components/mdx";
+import { SiteFooter } from "@/app/components/layout/site-footer";
+import { siteContentColumnClass } from "@/app/styles/classes/layout";
 import "./mdx.css";
 
 export const revalidate = 60;
@@ -14,8 +15,6 @@ type Props = {
 		slug: string;
 	};
 };
-
-const redis = Redis.fromEnv();
 
 export async function generateStaticParams(): Promise<Props["params"][]> {
 	return allProjects
@@ -33,17 +32,19 @@ export default async function PostPage({ params }: Props) {
 		notFound();
 	}
 
-	const views =
-		(await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
-
 	return (
-		<div className="min-h-screen bg-gradient-to-tl from-blue-200 via-zinc-100/80 to-zinc-600">
-			<Header project={project} views={views} />
+		<>
+			<Header project={project} />
 			<ReportView slug={project.slug} />
 
-			<article className="px-4 py-12 mx-auto prose prose-zinc prose-quoteless font-inter">
-				<Mdx code={project.body.code} />
+			<article
+				className={`relative z-10 border-t border-border/80 py-12 dark:border-border/60 ${siteContentColumnClass}`}
+			>
+				<div className="prose prose-stone prose-quoteless max-w-none font-inter dark:prose-invert lg:prose-lg">
+					<Mdx code={project.body.code} />
+				</div>
 			</article>
-		</div>
+			<SiteFooter />
+		</>
 	);
 }

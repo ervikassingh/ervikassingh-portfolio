@@ -2,18 +2,21 @@ import "../global.css";
 import { Inter } from "next/font/google";
 import LocalFont from "next/font/local";
 import { Metadata } from "next";
+import { ThemeProvider } from "./components/ui/theme-provider";
 
 export const metadata: Metadata = {
 	title: {
-		default: "ervikassingh.com",
+		default: "Vikas Singh | Web3 Engineer",
 		template: "%s | ervikassingh.com",
 	},
-	description: "",
+	description:
+		"Portfolio of Vikas Singh, a Web3 engineer with 5+ years of experience building decentralized applications, smart contracts, and scalable backend infrastructure.",
 	openGraph: {
-		title: "ervikassingh.com",
-		description: "",
+		title: "Vikas Singh | Web3 Engineer",
+		description:
+			"Portfolio of Vikas Singh, a Web3 engineer building decentralized applications.",
 		url: "https://ervikassingh.com",
-		siteName: "ervikassingh.com",
+		siteName: "Vikas Singh Portfolio",
 		locale: "en-US",
 		type: "website",
 	},
@@ -48,14 +51,25 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
+		<html
+			lang="en"
+			className={[inter.variable, calSans.variable].join(" ")}
+			suppressHydrationWarning
+		>
 			<head />
 			<body
-				className={`bg-black ${
-					process.env.NODE_ENV === "development" ? "debug-screens" : undefined
+				className={`min-h-screen bg-surface text-fg-secondary antialiased ${
+					process.env.NODE_ENV === "development" ? "debug-screens" : ""
 				}`}
 			>
-				{children}
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					{children}
+				</ThemeProvider>
 			</body>
 		</html>
 	);
