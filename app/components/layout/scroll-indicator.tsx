@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export function ScrollIndicator() {
 	const [isVisible, setIsVisible] = useState(true);

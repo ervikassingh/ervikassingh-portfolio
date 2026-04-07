@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { siteContentColumnClass } from "@/app/styles/classes/site-content-column";
 import { Card } from "../components/ui/card";
 import { PageHero } from "../components/layout/page-hero";

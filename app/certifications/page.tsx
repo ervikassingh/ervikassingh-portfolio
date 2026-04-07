@@ -1,6 +1,6 @@
 import { Card } from "../components/ui/card";
-import { Navigation } from "../components/layout/nav";
 import { PageHero } from "../components/layout/page-hero";
+import { SiteHeader } from "../components/layout/site-header";
 import { SiteFooter } from "../components/layout/site-footer";
 import { SitePageShell } from "../components/layout/site-page-shell";
 import { siteContentColumnClass } from "@/app/styles/classes/site-content-column";
@@ -13,7 +13,7 @@ const credentialCtaClass =
 export default function CertificationsPage() {
 	return (
 		<SitePageShell>
-			<Navigation />
+			<SiteHeader />
 			<PageHero
 				title="Licenses & certifications"
 				description="Formal validation of the skills behind the work - cloud, security, and Web3-adjacent platforms I rely on in production."

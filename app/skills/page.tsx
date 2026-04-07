@@ -1,5 +1,5 @@
-import { Navigation } from "../components/layout/nav";
 import { PageHero } from "../components/layout/page-hero";
+import { SiteHeader } from "../components/layout/site-header";
 import { SiteFooter } from "../components/layout/site-footer";
 import { SitePageShell } from "../components/layout/site-page-shell";
 import { siteContentColumnClass } from "@/app/styles/classes/site-content-column";
@@ -12,7 +12,7 @@ const skillLinkClass =
 export default function SkillsPage() {
 	return (
 		<SitePageShell>
-			<Navigation />
+			<SiteHeader />
 			<PageHero
 				title="Skills & technologies"
 				description="Languages, frameworks, and platforms I reach for when shipping production Web3 backends, indexers, and full-stack products."
