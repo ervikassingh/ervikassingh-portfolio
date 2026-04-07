@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { allProjects } from "contentlayer/generated";
 import { Card } from "../components/ui/card";
-import { Navigation } from "../components/layout/nav";
 import { PageHero } from "../components/layout/page-hero";
+import { SiteHeader } from "../components/layout/site-header";
 import { SiteFooter } from "../components/layout/site-footer";
 import { Article } from "./article";
 import { Redis } from "@upstash/redis";
@@ -48,7 +48,7 @@ export default async function ProjectsPage() {
 
 	return (
 		<div>
-			<Navigation />
+			<SiteHeader />
 			<PageHero
 				title="Projects"
 				description="A mix of client delivery, open experiments, and products - smart contracts, indexers, agents, and full-stack apps."

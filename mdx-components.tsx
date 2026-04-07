@@ -1,10 +1,10 @@
-import React, { PropsWithChildren } from "react";
+import type { ComponentType, PropsWithChildren } from "react";
 import { mdxRootHeadingClassNames } from "@/app/components/mdx/mdx-element-classes";
 
 // This file is required to use MDX in `app` directory.
 export function useMDXComponents(
-	components: Record<string, React.ComponentType> = {},
-): Record<string, React.ComponentType> {
+	components: Record<string, ComponentType> = {},
+): Record<string, ComponentType> {
 	return {
 		h1: ({ children }: PropsWithChildren) => (
 			<h1 className={mdxRootHeadingClassNames.h1}>{children}</h1>

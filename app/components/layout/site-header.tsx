@@ -17,14 +17,26 @@ export const SITE_NAV = [
 	{ name: "Certifications", href: "/certifications" },
 ] as const;
 
+const headerLayoutClass =
+	"fixed inset-x-0 top-0 z-50 border-b border-border/80 backdrop-saturate-150 dark:border-border/50";
+
+const headerFrostDefaultClass =
+	"bg-surface/60 backdrop-blur-md supports-[backdrop-filter]:bg-surface/45 dark:bg-surface/55 dark:supports-[backdrop-filter]:bg-surface/40";
+
+const headerFrostProjectClass =
+	"bg-surface/50 backdrop-blur-xl supports-[backdrop-filter]:bg-surface/30 dark:bg-surface/45 dark:supports-[backdrop-filter]:bg-surface/22";
+
 export type SiteHeaderProps = {
 	trailing?: ReactNode;
 	themeToggleClassName?: string;
+	/** Stronger glass + lower tint on project detail pages. */
+	variant?: "default" | "project";
 };
 
 export function SiteHeader({
 	trailing,
 	themeToggleClassName = "shrink-0",
+	variant = "default",
 }: SiteHeaderProps) {
 	const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
@@ -56,8 +68,11 @@ export function SiteHeader({
 		};
 	}, [mobileNavOpen]);
 
+	const frostClass =
+		variant === "project" ? headerFrostProjectClass : headerFrostDefaultClass;
+
 	return (
-		<header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-surface/60 backdrop-blur-md backdrop-saturate-150 supports-[backdrop-filter]:bg-surface/45 dark:border-border/50 dark:bg-surface/55 dark:supports-[backdrop-filter]:bg-surface/40">
+		<header className={`${headerLayoutClass} ${frostClass}`}>
 			<div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
 				<div className="flex items-center justify-between gap-3 py-3.5 sm:gap-4 sm:py-4">
 					<Link
