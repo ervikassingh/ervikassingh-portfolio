@@ -20,7 +20,7 @@ export const mdxElementClassNames = {
 	tr: "m-0 border-t border-table-border p-0 even:bg-table-stripe dark:even:bg-surface-elevated/40",
 	th: "border border-border px-4 py-2 text-left font-bold dark:border-border-strong [&[align=center]]:text-center [&[align=right]]:text-right",
 	td: "border border-border px-4 py-2 text-left dark:border-border-strong [&[align=center]]:text-center [&[align=right]]:text-right",
-	pre: "mt-6 mb-4 overflow-x-auto rounded-lg bg-code-block py-4",
+	pre: "mt-6 mb-4 overflow-x-auto rounded-lg bg-code-block py-4 [&_code]:border-0 [&_code]:bg-transparent [&_code]:p-0 dark:[&_code]:border-0 dark:[&_code]:bg-transparent",
 	code: "relative rounded border border-border bg-code-inline-bg/60 py-[0.2rem] px-[0.3rem] font-mono text-sm text-code-inline-fg dark:border-border-strong dark:bg-code-inline-bg/10",
 } as const;
 

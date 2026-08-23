@@ -82,9 +82,17 @@ const components = {
 	pre: ({ className, ...props }) => (
 		<pre className={clsx(mdxElementClassNames.pre, className)} {...props} />
 	),
-	code: ({ className, ...props }) => (
-		<code className={clsx(mdxElementClassNames.code, className)} {...props} />
-	),
+	code: ({ className, ...props }) => {
+		const isFenced = Boolean(
+			className?.includes("language-") || props["data-language"],
+		);
+		return (
+			<code
+				className={clsx(!isFenced && mdxElementClassNames.code, className)}
+				{...props}
+			/>
+		);
+	},
 	Image,
 };
 
