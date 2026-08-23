@@ -15,7 +15,7 @@ export default function SkillsPage() {
 			<SiteHeader />
 			<PageHero
 				title="Skills & technologies"
-				description="Languages, frameworks, and platforms I reach for when shipping production Web3 backends, indexers, and full-stack products."
+				description="Languages, frameworks, and platforms I reach for when shipping production NestJS backends, agentic AI systems, and distributed services."
 			/>
 
 			<div

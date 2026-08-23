@@ -6,15 +6,15 @@ import { ThemeProvider } from "./components/ui/theme-provider";
 
 export const metadata: Metadata = {
 	title: {
-		default: "Vikas Singh | Web3 Engineer",
+		default: "Vikas Singh | Senior Backend Engineer",
 		template: "%s | ervikassingh.com",
 	},
 	description:
-		"Portfolio of Vikas Singh, a Web3 engineer with 5+ years of experience building decentralized applications, smart contracts, and scalable backend infrastructure.",
+		"Portfolio of Vikas Singh, a senior backend engineer with 6+ years of experience building NestJS systems, distributed APIs, and agentic AI.",
 	openGraph: {
-		title: "Vikas Singh | Web3 Engineer",
+		title: "Vikas Singh | Senior Backend Engineer",
 		description:
-			"Portfolio of Vikas Singh, a Web3 engineer building decentralized applications.",
+			"Portfolio of Vikas Singh, a senior backend engineer building NestJS systems, distributed APIs, and agentic AI.",
 		url: "https://ervikassingh.com",
 		siteName: "Vikas Singh Portfolio",
 		locale: "en-US",

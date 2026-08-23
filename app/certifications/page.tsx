@@ -16,7 +16,7 @@ export default function CertificationsPage() {
 			<SiteHeader />
 			<PageHero
 				title="Licenses & certifications"
-				description="Formal validation of the skills behind the work - cloud, security, and Web3-adjacent platforms I rely on in production."
+				description="Formal validation of the skills behind the work - Hashgraph, zero-knowledge, and the platforms I rely on in production."
 			/>
 
 			<div

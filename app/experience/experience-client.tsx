@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { siteContentColumnClass } from "@/app/styles/classes/site-content-column";
+import { ExternalLink } from "lucide-react";
 import { Card } from "../components/ui/card";
 import { PageHero } from "../components/layout/page-hero";
 import experience from "../../content/experience";
@@ -116,7 +117,7 @@ export function ExperienceClient() {
 		<div className="relative z-10 pb-16">
 			<PageHero
 				title="Experience"
-				description="My professional journey in software development and blockchain engineering from full-stack delivery to Web3 infrastructure and smart-contract systems."
+				description="Backend engineering across NestJS APIs, distributed systems, and agentic AI from RAG agents to ledger-backed production infrastructure."
 			/>
 
 			<div className={`relative pt-10 md:pt-14 ${siteContentColumnClass}`}>
@@ -154,7 +155,24 @@ export function ExperienceClient() {
 													</h3>
 
 													<p className="select-none break-words font-medium text-fg-secondary transition-colors duration-300 group-hover:text-fg">
-														{exp.company} · {exp.employmentType}
+														<a
+															href={exp.url}
+															target="_blank"
+															rel="noopener noreferrer"
+															onClick={(e) => e.stopPropagation()}
+															onPointerDown={(e) => e.stopPropagation()}
+															onKeyDown={(e) => e.stopPropagation()}
+															className="inline-flex items-center gap-1.5 underline-offset-4 hover:underline"
+															aria-label={`${exp.company} website`}
+														>
+															{exp.company}
+															<ExternalLink
+																className="h-3.5 w-3.5 shrink-0"
+																aria-hidden
+															/>
+														</a>
+														{" · "}
+														{exp.employmentType}
 													</p>
 
 													<div className="flex select-none flex-col break-words text-sm text-fg-muted transition-colors duration-300 group-hover:text-fg-secondary sm:flex-row sm:items-center sm:space-x-4">

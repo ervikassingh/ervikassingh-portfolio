@@ -28,7 +28,11 @@ export default function Home() {
 	const featuredProjects = allProjects
 		.filter((p) => p.published)
 		.filter((project) =>
-			["custom-ai-agent", "taxicoin", "mymetafi"].includes(project.slug),
+			[
+				"custom-ai-agent",
+				"nestjs-microservices-template",
+				"nestjs-monolithic-template",
+			].includes(project.slug),
 		)
 		.sort(
 			(a, b) =>
@@ -62,12 +66,11 @@ export default function Home() {
 						style={{ animationDelay: "0.5s" }}
 					>
 						<h2 className="text-lg leading-relaxed text-fg-muted">
-							Web3 engineer with{" "}
+							Senior backend engineer with{" "}
 							<span className="font-medium tracking-wide text-fg-secondary">
-								5+ years of experience
+								6+ years of experience
 							</span>{" "}
-							building decentralized applications, smart contracts, and scalable
-							backend infrastructure.
+							building NestJS systems, distributed APIs, and agentic AI.
 						</h2>
 					</div>
 
@@ -77,7 +80,7 @@ export default function Home() {
 					>
 						<div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
 							<Link
-								href="https://drive.google.com/file/d/1emaSFLFhWBOVW-M3pgtejRUMM7LpEIX8/view"
+								href="https://drive.google.com/file/d/16v0V8EHss-uXTJhT1Z7p-OESpeJs1LQI/view"
 								target="_blank"
 								rel="noopener noreferrer"
 								className={heroCtaOutlineClass}

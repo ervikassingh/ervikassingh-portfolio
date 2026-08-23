@@ -51,7 +51,7 @@ export default async function ProjectsPage() {
 			<SiteHeader />
 			<PageHero
 				title="Projects"
-				description="A mix of client delivery, open experiments, and products - smart contracts, indexers, agents, and full-stack apps."
+				description="Agentic AI, NestJS backends, indexers, and full-stack products - client delivery, open experiments, and production templates."
 			/>
 
 			<div
