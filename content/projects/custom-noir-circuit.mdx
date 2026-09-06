@@ -1,0 +1,76 @@
+---
+title: custom-noir-circuit
+description: A learning project for zero-knowledge proof development, featuring a custom Noir circuit with Keccak256 hashing and Barretenberg proof generation and verification.
+repository: ervikassingh/custom-noir-circuit
+date: 2026-01-01
+published: true
+---
+
+## Overview
+
+Custom Noir Circuit is an experimental project for learning and testing zero-knowledge proof (ZKP) development using Noir. It implements a password verification circuit with Keccak256 hashing and uses Barretenberg as the zero-knowledge proof system backend for proof generation and verification.
+
+## Key Features
+
+- **Custom Noir Circuit**: Password verification circuit implemented in Noir
+- **Keccak256 Hashing**: Cryptographic hashing for private input verification
+- **Proof Generation**: Generate zero-knowledge proofs using Barretenberg
+- **Proof Verification**: Verify proofs with generated verification keys
+- **Solidity Verifier**: Generate a Solidity verifier smart contract for on-chain verification
+- **Testing Support**: Run circuit tests directly with Nargo
+
+## Project Structure
+
+```
+.
+├── Nargo.toml          # Noir project configuration
+├── Prover.toml         # Prover configuration
+└── src/
+    └── main.nr         # Main circuit implementation
+```
+
+## Technologies Used
+
+- **Noir** - Domain-specific language for creating zero-knowledge proofs
+- **Nargo** - Noir package manager and toolchain
+- **Barretenberg** - Zero-knowledge proof system backend
+- **Keccak256** - Cryptographic hash function
+- **Solidity** - For generated verifier smart contracts
+
+## Getting Started
+
+### Prerequisites
+
+- [Nargo](https://noir-lang.org/getting_started/installation/) - The Noir package manager
+- [Barretenberg](https://github.com/AztecProtocol/barretenberg) - Zero-knowledge proof system backend
+
+### Common Commands
+
+```bash
+# Run all tests
+nargo test
+
+# Check circuit for errors
+nargo check
+
+# Compile circuit to ACIR
+nargo compile
+
+# Compile circuit and create a witness
+nargo execute
+
+# Generate verification key
+bb write_vk -b ./target/custom_noir_circuit.json -o ./verification_keys
+
+# Generate proof
+bb prove -b ./target/custom_noir_circuit.json -w ./target/custom_noir_circuit.gz \
+  -k ./verification_keys/vk -o ./proofs
+
+# Verify proof
+bb verify -k ./verification_keys/vk -p ./proofs/proof -i ./proofs/public_inputs
+```
+
+## Resources
+
+- [Noir Documentation](https://noir-lang.org/)
+- [Noir GitHub](https://github.com/noir-lang/noir)

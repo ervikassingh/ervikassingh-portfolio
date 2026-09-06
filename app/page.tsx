@@ -25,20 +25,15 @@ import { siteContentColumnClass } from "./styles/classes/site-content-column";
 const skillStripItems = [...languages, ...tools];
 
 export default function Home() {
-	const featuredProjects = allProjects
-		.filter((p) => p.published)
-		.filter((project) =>
-			[
-				"custom-ai-agent",
-				"nestjs-microservices-template",
-				"nestjs-monolithic-template",
-			].includes(project.slug),
-		)
-		.sort(
-			(a, b) =>
-				new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-				new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
-		);
+	const featuredSlugs = [
+		"custom-ai-agent",
+		"prompt-relay-landing",
+		"nestjs-microservices-template",
+	];
+
+	const featuredProjects = featuredSlugs
+		.map((slug) => allProjects.find((p) => p.published && p.slug === slug))
+		.filter((p): p is NonNullable<typeof p> => Boolean(p));
 
 	return (
 		<SitePageShell particleQuantity={150}>

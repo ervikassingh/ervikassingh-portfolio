@@ -1,0 +1,62 @@
+---
+title: prompt-relay-landing
+description: A fast, responsive marketing landing page for Prompt Relay — a Chrome extension that tracks AI context usage and relays conversations between assistants.
+repository: ervikassingh/prompt-relay-landing
+url: https://prompt-relay-landing.vercel.app/
+date: 2026-06-01
+published: true
+---
+
+## Overview
+
+Prompt Relay Landing is the public-facing marketing site for Prompt Relay, a Chrome extension that tracks AI context usage and relays conversations between assistants. The site is built as a lightweight, single-page Vite + React + TypeScript application with Tailwind CSS, designed to load quickly and convert visitors into extension users.
+
+## Key Features
+
+- **Fast Static Site**: Vite-powered build with near-instant dev feedback and optimized production bundles
+- **Responsive Design**: Tailwind CSS ensures a polished experience across desktop, tablet, and mobile
+- **Install CTA**: Dynamic install button that appears when the Chrome Web Store URL is configured
+- **Privacy Policy & Support**: Dedicated sections for privacy policy and contact email
+- **Type-Safe**: TypeScript throughout with a dedicated typecheck script
+- **Easy Deployment**: Ready-to-deploy Vercel configuration with environment variable support
+
+## Technologies Used
+
+- **Vite** - Next-generation frontend tooling for fast builds and dev server
+- **React** - Component-based UI library
+- **TypeScript** - Type-safe JavaScript for better developer experience
+- **Tailwind CSS** - Utility-first CSS framework for rapid styling
+- **Vercel** - Deployment and hosting platform
+
+## Project Structure
+
+```
+.
+├── public/           # Static assets
+├── src/              # React components and application code
+├── .env.example      # Example environment variables
+├── index.html        # HTML entry point
+├── package.json      # Dependencies and scripts
+├── tailwind.config.js # Tailwind configuration
+├── tsconfig.json     # TypeScript configuration
+└── vite.config.ts    # Vite configuration
+```
+
+## Getting Started
+
+```bash
+npm install
+cp .env.example .env.local
+# Set VITE_CHROME_WEB_STORE_URL and VITE_CONTACT_EMAIL in .env.local
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173/) to view the site locally.
+
+## Deployment
+
+The project is configured for deployment on Vercel. Add the required environment variables (`VITE_CHROME_WEB_STORE_URL` and `VITE_CONTACT_EMAIL`) in the Vercel dashboard, and Vite will bake them into the build at deploy time.
+
+## Live Site
+
+Visit the deployed landing page at [prompt-relay-landing.vercel.app](https://prompt-relay-landing.vercel.app/).

@@ -25,8 +25,8 @@ export default async function ProjectsPage() {
 	const featured = allProjects.find(
 		(project) => project.slug === "custom-ai-agent",
 	);
-	const top2 = allProjects.find((project) => project.slug === "taxicoin");
-	const top3 = allProjects.find((project) => project.slug === "mymetafi");
+	const top2 = allProjects.find((project) => project.slug === "prompt-relay-landing");
+	const top3 = allProjects.find((project) => project.slug === "nestjs-microservices-template");
 
 	if (!featured || !top2 || !top3) {
 		return null;

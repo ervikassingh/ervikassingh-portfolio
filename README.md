@@ -1,53 +1,85 @@
-# Portfolio
+# ervikassingh.com
 
-A modern, customizable portfolio built with Next.js, Tailwind CSS, and MDX. Showcase your projects, skills, and contact information with a clean and responsive design.
+The personal portfolio of Vikas Singh, a senior backend engineer focused on NestJS systems, distributed APIs, and agentic AI.
 
-## Getting Started
+The site is built with Next.js App Router, TypeScript, Tailwind CSS, Contentlayer, and MDX. It includes a responsive layout, system-aware light and dark themes, animated UI, project case studies, experience, skills, and certifications.
+
+## Routes
+
+- `/` - Introduction, skills, featured projects, and current role
+- `/projects` - Project index
+- `/projects/[slug]` - Individual project case studies
+- `/experience` - Professional experience
+- `/skills` - Languages and tools
+- `/certifications` - Certifications
+
+## Development
 
 ### Prerequisites
-- Node.js (v18 or higher recommended)
-- pnpm (or npm/yarn)
+
+- Node.js 18 or newer
+- pnpm 10 (the repository declares pnpm 10.13.1)
 
 ### Installation
 
 ```bash
-# Clone the repository
-https://github.com/ervikassingh/ervikassingh-portfolio.git
+git clone https://github.com/ervikassingh/ervikassingh-portfolio.git
 cd ervikassingh-portfolio
-
-# Install dependencies
 pnpm install
-# or
-npm install
-# or
-yarn install
 ```
 
-### Development
+### Run locally
 
 ```bash
 pnpm dev
-# or
-npm run dev
-# or
-yarn dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to view your portfolio.
+Open [http://localhost:3000](http://localhost:3000) in a browser.
 
-### Build for Production
+### Production build
 
 ```bash
 pnpm build
 pnpm start
 ```
 
-## Adding Projects
+### Formatting
 
-Add new `.mdx` files to `content/projects/` to showcase new projects. Each file represents a project and supports Markdown + JSX.
+```bash
+pnpm fmt
+```
 
-## Customization
+## Content
 
-- **Branding:** Update colors, fonts, and images in `tailwind.config.js` and `public/`.
-- **Components:** Edit or add components in `app/components/`.
-- **Content:** Modify or add MDX files in `content/projects/`.
+Projects are Contentlayer documents stored in `content/projects/`. Add a new `.mdx` file with frontmatter like this:
+
+```mdx
+---
+title: Example project
+description: A short summary of the project.
+published: true
+date: 2024-01-01
+url: https://example.com
+repository: https://github.com/example/project
+---
+
+Project details, code samples, and other Markdown content go here.
+```
+
+The `title`, `description`, and `published` fields are required. `date`, `url`, and `repository` are optional. Set `published: false` to keep a project out of the public project lists.
+
+Other portfolio data lives in TypeScript modules under `content/`, while reusable UI and layout components live under `app/components/`.
+
+## Project structure
+
+```text
+app/          Next.js routes, layouts, and components
+content/      Projects and portfolio data
+public/       Fonts and static assets
+pages/api/    API routes
+global.css    Global styles and design tokens
+```
+
+## License
+
+This project is available under the terms of the [LICENSE](LICENSE) file.
