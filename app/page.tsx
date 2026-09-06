@@ -33,7 +33,7 @@ export default function Home() {
 
 	const featuredProjects = featuredSlugs
 		.map((slug) => allProjects.find((p) => p.published && p.slug === slug))
-		.filter(Boolean);
+		.filter((p): p is NonNullable<typeof p> => Boolean(p));
 
 	return (
 		<SitePageShell particleQuantity={150}>
