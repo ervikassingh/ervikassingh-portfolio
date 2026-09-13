@@ -1,0 +1,32 @@
+---
+title: agent-orchestration
+description: Tool-calling agent service built on a LangGraph StateGraph orchestration loop (planner, tool execution, conditional routing) over a RAG pipeline with OpenAI embeddings and a Chroma vector store; ships a reusable tool library (web search, email, knowledge-base retrieval) exposed through a FastAPI backend with REST and SSE streaming endpoints and a React dashboard.
+repository: ervikassingh/agent-orchestration
+date: 2026-09-01
+published: true
+---
+
+## Overview
+
+Agent Orchestration is a tool-calling agent service built on a LangGraph `StateGraph` orchestration loop. The agent plans, executes tools, and conditionally routes between steps over a RAG pipeline powered by OpenAI embeddings and a Chroma vector store. A reusable tool library (web search, email, knowledge-base retrieval) is exposed through a FastAPI backend with REST and SSE streaming endpoints, and a React dashboard for interacting with the agent.
+
+## Key Features
+
+- **LangGraph Orchestration**: Planner → tool execution → conditional routing loop built on a `StateGraph`
+- **RAG Pipeline**: OpenAI embeddings with a Chroma vector store for knowledge-base retrieval
+- **Reusable Tool Library**: Web search, email, and knowledge-base retrieval tools, easy to extend
+- **FastAPI Backend**: REST endpoints plus SSE streaming for real-time agent responses
+- **React Dashboard**: Frontend for chatting with the agent and observing tool calls
+
+## Technologies Used
+
+- **Python** - Core language for the agent service
+- **LangChain & LangGraph** - Agent framework and StateGraph orchestration
+- **FastAPI** - Backend API with REST and SSE streaming endpoints
+- **Chroma** - Vector store for RAG retrieval
+- **OpenAI** - Embeddings and LLM
+- **React** - Dashboard frontend
+
+## Repository
+
+[github.com/ervikassingh/agent-orchestration](https://github.com/ervikassingh/agent-orchestration)

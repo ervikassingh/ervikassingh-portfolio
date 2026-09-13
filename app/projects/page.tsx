@@ -23,10 +23,10 @@ export default async function ProjectsPage() {
 	}, {} as Record<string, number>);
 
 	const featured = allProjects.find(
-		(project) => project.slug === "custom-ai-agent",
+		(project) => project.slug === "agent-orchestration",
 	);
-	const top2 = allProjects.find((project) => project.slug === "prompt-relay-landing");
-	const top3 = allProjects.find((project) => project.slug === "nestjs-microservices-template");
+	const top2 = allProjects.find((project) => project.slug === "custom-ai-agent");
+	const top3 = allProjects.find((project) => project.slug === "prompt-relay-landing");
 
 	if (!featured || !top2 || !top3) {
 		return null;
