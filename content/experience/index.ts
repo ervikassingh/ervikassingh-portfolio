@@ -8,9 +8,11 @@ const experience = [
 		endDate: "Present",
 		location: "Pfäffikon, Zurich, Switzerland",
 		description: [
-			"Building NestJS and TypeScript backend services for Hedera Hashgraph products, connecting distributed ledger operations to production APIs for enterprise clients.",
-			"Designing scalable backend infrastructure — service modules, protocol integrations, and secure request handling — for applications in a globally distributed engineering organization.",
-			"Owning reliability and security of ledger-backed backends: authentication, ledger interactions, and service-layer design aligned with enterprise operational requirements.",
+			"Build NestJS and TypeScript backend services for Hedera Hashgraph products, connecting Distributed Ledger Technology (DLT) operations to production APIs for enterprise clients.",
+			"Developed an internal employee time and cost tracking tool on AWS DynamoDB with a microservices architecture, serving 200+ employees and processing 10,000+ monthly time entries with sub-second query performance and cutting manual reconciliation effort by ~70%.",
+			"Took end-to-end ownership of 2 products: Transact and THA Academy, driving architecture decisions, feature delivery, and cross-team coordination from design through production.",
+			"Grew and operated THA Academy at scale: 120,000+ registered users with 5,000+ monthly active users attending courses, supported by scalable backend services and reliable content delivery.",
+			"Helped design and implement a versioned DynamoDB migrations pipeline with CI-gated schema updates, enabling safe, repeatable, zero-downtime table changes across environments.",
 		],
 	},
 	{

@@ -26,9 +26,9 @@ const skillStripItems = [...languages, ...tools];
 
 export default function Home() {
 	const featuredSlugs = [
+		"agent-orchestration",
 		"custom-ai-agent",
 		"prompt-relay-landing",
-		"nestjs-microservices-template",
 	];
 
 	const featuredProjects = featuredSlugs
@@ -75,7 +75,7 @@ export default function Home() {
 					>
 						<div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
 							<Link
-								href="https://drive.google.com/file/d/16v0V8EHss-uXTJhT1Z7p-OESpeJs1LQI/view"
+								href="https://drive.google.com/file/d/1WrnuXwQ3gejFvYImimQTFdgizMsDCmSY/view"
 								target="_blank"
 								rel="noopener noreferrer"
 								className={heroCtaOutlineClass}
