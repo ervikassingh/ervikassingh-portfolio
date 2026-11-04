@@ -25,6 +25,21 @@ const tools = [
 		link: "https://expressjs.com/",
 	},
 	{
+		name: "FastAPI",
+		icon: "https://cdn.simpleicons.org/fastapi",
+		link: "https://fastapi.tiangolo.com/",
+	},
+	{
+		name: "LangChain",
+		icon: "https://cdn.simpleicons.org/langchain",
+		link: "https://www.langchain.com/",
+	},
+	{
+		name: "LangGraph",
+		icon: "https://api.iconify.design/simple-icons/langgraph.svg",
+		link: "https://www.langchain.com/langgraph",
+	},
+	{
 		name: "Ollama",
 		icon: "https://cdn.simpleicons.org/ollama",
 		link: "https://ollama.ai/",
@@ -43,6 +58,16 @@ const tools = [
 		name: "Swagger",
 		icon: "https://cdn.simpleicons.org/swagger",
 		link: "https://swagger.io/",
+	},
+	{
+		name: "JWT",
+		icon: "https://cdn.simpleicons.org/jsonwebtokens",
+		link: "https://jwt.io/",
+	},
+	{
+		name: "TypeORM",
+		icon: "https://cdn.simpleicons.org/typeorm",
+		link: "https://typeorm.io/",
 	},
 	{
 		name: "MySQL",
@@ -105,6 +130,11 @@ const tools = [
 		link: "https://grpc.io/",
 	},
 	{
+		name: "GraphQL",
+		icon: "https://cdn.simpleicons.org/graphql",
+		link: "https://graphql.org/",
+	},
+	{
 		name: "Docker",
 		icon: "https://cdn.simpleicons.org/docker",
 		link: "https://www.docker.com/",
@@ -113,6 +143,31 @@ const tools = [
 		name: "Kubernetes",
 		icon: "https://cdn.simpleicons.org/kubernetes",
 		link: "https://kubernetes.io/",
+	},
+	{
+		name: "Helm",
+		icon: "https://cdn.simpleicons.org/helm",
+		link: "https://helm.sh/",
+	},
+	{
+		name: "Prometheus",
+		icon: "https://cdn.simpleicons.org/prometheus",
+		link: "https://prometheus.io/",
+	},
+	{
+		name: "Grafana",
+		icon: "https://cdn.simpleicons.org/grafana",
+		link: "https://grafana.com/",
+	},
+	{
+		name: "Turborepo",
+		icon: "https://cdn.simpleicons.org/turborepo",
+		link: "https://turbo.build/repo",
+	},
+	{
+		name: "Nx",
+		icon: "https://cdn.simpleicons.org/nx",
+		link: "https://nx.dev/",
 	},
 	{
 		name: "Firebase",
@@ -153,6 +208,26 @@ const tools = [
 		name: "Jira",
 		icon: "https://cdn.simpleicons.org/jira",
 		link: "https://www.atlassian.com/software/jira",
+	},
+	{
+		name: "Hedera Hashgraph",
+		icon: "https://cdn.simpleicons.org/hedera",
+		link: "https://hedera.com/",
+	},
+	{
+		name: "EVM",
+		icon: "https://cdn.simpleicons.org/ethereum",
+		link: "https://ethereum.org/en/developers/docs/evm/",
+	},
+	{
+		name: "The Graph",
+		icon: "https://api.iconify.design/cryptocurrency/grt.svg",
+		link: "https://thegraph.com/",
+	},
+	{
+		name: "Gnosis Safe",
+		icon: "https://api.iconify.design/token-branded/safe.svg",
+		link: "https://safe.global/",
 	},
 	{
 		name: "OpenSea",

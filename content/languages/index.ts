@@ -10,6 +10,11 @@ const languages = [
 		link: "https://www.typescriptlang.org/",
 	},
 	{
+		name: "SQL",
+		icon: "https://api.iconify.design/mdi/database-search.svg",
+		link: "https://en.wikipedia.org/wiki/SQL",
+	},
+	{
 		name: "Solidity",
 		icon: "https://cdn.simpleicons.org/solidity",
 		link: "https://docs.soliditylang.org/",
