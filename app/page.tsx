@@ -75,7 +75,7 @@ export default function Home() {
 					>
 						<div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
 							<Link
-								href="https://drive.google.com/file/d/1WrnuXwQ3gejFvYImimQTFdgizMsDCmSY/view"
+								href="https://drive.google.com/file/d/1bpUmUvd4opalPVmliYpRX-5mJmaCAYwV/view"
 								target="_blank"
 								rel="noopener noreferrer"
 								className={heroCtaOutlineClass}

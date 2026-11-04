@@ -1,12 +1,12 @@
 const experience = [
 	{
-		title: "Web3 Backend Developer",
+		title: "Senior Backend Developer",
 		company: "The Hashgraph Group",
 		url: "https://www.hashgraph-group.com/",
 		employmentType: "Full-time",
 		startDate: "Oct 2025",
 		endDate: "Present",
-		location: "Pfäffikon, Zurich, Switzerland",
+		location: "Pfäffikon, Switzerland (Remote)",
 		description: [
 			"Build NestJS and TypeScript backend services for Hedera Hashgraph products, connecting Distributed Ledger Technology (DLT) operations to production APIs for enterprise clients.",
 			"Developed an internal employee time and cost tracking tool on AWS DynamoDB with a microservices architecture, serving 200+ employees and processing 10,000+ monthly time entries with sub-second query performance and cutting manual reconciliation effort by ~70%.",
@@ -16,7 +16,7 @@ const experience = [
 		],
 	},
 	{
-		title: "Software Engineer - Blockchain",
+		title: "Software Engineer - NodeJS",
 		company: "Appinventiv Technologies Pvt. Ltd.",
 		url: "https://appinventiv.com/",
 		employmentType: "Full-time",
@@ -26,7 +26,7 @@ const experience = [
 		description: [
 			"Designed and shipped NestJS backends for production products, including Taxicoin (cross-platform ride-hailing with crypto payments and in-app staking) and collective-investment platforms with automated on-chain settlement.",
 			"Built a modular indexer that ingests and processes transactions across multiple EVM-compatible chains; adopted as a shared platform component across several organizational projects.",
-			"Integrated The Graph for real-time indexed queries, reducing query response time by 40%.",
+			"Integrated The Graph for real-time indexed blockchain queries, reducing query response time by 40%.",
 			"Delivered 3+ DAO platforms with proposal-based governance, plus asset-tokenization systems enabling fractional ownership of digital and real-world assets.",
 			"Implemented Gnosis Safe multi-signature wallets for institutional-grade asset custody, and event-driven pipelines (webhooks, WebSockets, on-chain events) to keep backends in sync with high-volume on-chain activity.",
 		],
